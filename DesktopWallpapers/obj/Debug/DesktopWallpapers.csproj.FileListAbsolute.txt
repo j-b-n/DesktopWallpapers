@@ -2,8 +2,10 @@ c:\users\joabj85\documents\visual studio 2013\Projects\DesktopWallpapers\Desktop
 C:\Users\joabj85\Source\Repos\DesktopWallpapers\DesktopWallpapers\bin\Debug\DesktopWallpapers.exe.config
 C:\Users\joabj85\Source\Repos\DesktopWallpapers\DesktopWallpapers\bin\Debug\DesktopWallpapers.exe
 C:\Users\joabj85\Source\Repos\DesktopWallpapers\DesktopWallpapers\bin\Debug\DesktopWallpapers.pdb
-C:\Users\joabj85\Source\Repos\DesktopWallpapers\DesktopWallpapers\obj\Debug\DesktopWallpapers.csprojResolveAssemblyReference.cache
 C:\Users\joabj85\Source\Repos\DesktopWallpapers\DesktopWallpapers\obj\Debug\DesktopWallpapers.Properties.Resources.resources
 C:\Users\joabj85\Source\Repos\DesktopWallpapers\DesktopWallpapers\obj\Debug\DesktopWallpapers.csproj.GenerateResource.Cache
 C:\Users\joabj85\Source\Repos\DesktopWallpapers\DesktopWallpapers\obj\Debug\DesktopWallpapers.exe
 C:\Users\joabj85\Source\Repos\DesktopWallpapers\DesktopWallpapers\obj\Debug\DesktopWallpapers.pdb
+C:\Users\joabj85\Source\Repos\DesktopWallpapers\DesktopWallpapers\obj\Debug\DesktopWallpapers.Form1.resources
+C:\Users\joabj85\Source\Repos\DesktopWallpapers\DesktopWallpapers\bin\Debug\log4net.dll
+C:\Users\joabj85\Source\Repos\DesktopWallpapers\DesktopWallpapers\bin\Debug\log4net.xml

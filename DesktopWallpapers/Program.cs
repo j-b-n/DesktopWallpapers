@@ -42,20 +42,48 @@ namespace DesktopWallpapers
 
         public static string AppDir = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
 
+        ///CommandLine stuff
+        [DllImport( "kernel32.dll" )]
+        static extern bool AttachConsole(int dwProcessId);
+        private const int ATTACH_PARENT_PROCESS = -1;
+
+
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        static void Main(string[] args)
         {
             Properties.Settings.Default.Setting = "Foo";
             Properties.Settings.Default.Save();
             Log.Debug("Application Starting");
             Log.Debug("Appdir:" + AppDir);
 
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());                        
+            if (args == null)
+            {
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                Application.Run(new Form1());                        
+            }
+            else
+            {
+                // redirect console output to parent process;
+                // must be before any calls to Console.WriteLine()
+                AttachConsole(ATTACH_PARENT_PROCESS);
+
+                Console.WriteLine();
+                // to demonstrate where the console output is going
+                int argCount = args == null ? 0 : args.Length;
+                Console.WriteLine("You specified {0} arguments:", argCount);
+                for (int i = 0; i < argCount; i++)
+                {
+                    Console.WriteLine("  {0}", args[i]);
+                }
+                        
+                Console.WriteLine();
+            }
+            
         }
 
         public static void LoadXML()

@@ -40,17 +40,22 @@ namespace DesktopWallpapers
 
         public static List<BingImage> BingImages = new List<BingImage>();
 
+        public static string AppDir = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
         static void Main()
         {
+            Properties.Settings.Default.Setting = "Foo";
+            Properties.Settings.Default.Save();
+            Log.Debug("Application Starting");
+            Log.Debug("Appdir:" + AppDir);
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
-
-            Log.Debug("Application Starting");
+            Application.Run(new Form1());                        
         }
 
         public static void LoadXML()

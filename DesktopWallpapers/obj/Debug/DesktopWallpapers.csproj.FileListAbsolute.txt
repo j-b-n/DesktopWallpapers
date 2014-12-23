@@ -9,3 +9,4 @@ C:\Users\joabj85\Source\Repos\DesktopWallpapers\DesktopWallpapers\obj\Debug\Desk
 C:\Users\joabj85\Source\Repos\DesktopWallpapers\DesktopWallpapers\obj\Debug\DesktopWallpapers.Form1.resources
 C:\Users\joabj85\Source\Repos\DesktopWallpapers\DesktopWallpapers\bin\Debug\log4net.dll
 C:\Users\joabj85\Source\Repos\DesktopWallpapers\DesktopWallpapers\bin\Debug\log4net.xml
+C:\Users\joabj85\Source\Repos\DesktopWallpapers\DesktopWallpapers\obj\Debug\DesktopWallpapers.csprojResolveAssemblyReference.cache

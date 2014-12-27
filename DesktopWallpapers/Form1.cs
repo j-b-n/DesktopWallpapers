@@ -14,8 +14,8 @@ namespace DesktopWallpapers
     {
         public Form1()
         {
-            InitializeComponent();
-
+            InitializeComponent();  
+                                                 
             GrabPictureFromBing();
             try
             {
@@ -24,11 +24,12 @@ namespace DesktopWallpapers
                 pictureBox1.Image = img;
                 //pictureBox1.Height = 77*3;
                 //pictureBox1.Width = 136*3;                
+                toolStripStatusLabel3.Text = "Last update: "+DesktopWallpapers.Program.getLocalImageDate();
             }
             catch (Exception e)
             {
                 DesktopWallpapers.Program.ClearCache();
-            }
+            }                       
         }
 
         public void GrabPictureFromBing()
@@ -63,7 +64,7 @@ namespace DesktopWallpapers
                 }
             }
             
-            toolStripStatusLabel1.Text = msg;
+            //toolStripStatusLabel1.Text = msg.Trim();
             DesktopWallpapers.Program.DownloadImage("http://www.bing.com" + url);
         }
 
@@ -75,6 +76,12 @@ namespace DesktopWallpapers
         private void setToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DesktopWallpapers.Program.SetCurrentImageAsWallpaper();            
+        }
+
+        private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OptionsForm OF = new OptionsForm();
+            OF.ShowDialog();
         }
     }
 }

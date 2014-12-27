@@ -260,6 +260,16 @@ namespace DesktopWallpapers
             img.Save(newLocalImage, ImageFormat.Png);
         }
 
+        public static string getLocalImageDate()
+        {
+            if (File.Exists(LocalImageFilename))
+            {
+                DateTime dt = File.GetLastWriteTime(LocalImageFilename);
+                return dt.ToShortDateString() + " "+ dt.ToShortTimeString();
+            }
+            return "No file found!";
+        }
+
 /// <summary>
 /// Set the currently downloaded Image as Wallpaper
 /// </summary>

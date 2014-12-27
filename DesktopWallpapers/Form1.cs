@@ -23,7 +23,7 @@ namespace DesktopWallpapers
                 pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
                 pictureBox1.Image = img;
                 //pictureBox1.Height = 77*3;
-                //pictureBox1.Width = 136*3;
+                //pictureBox1.Width = 136*3;                
             }
             catch (Exception e)
             {
@@ -39,9 +39,7 @@ namespace DesktopWallpapers
             DesktopWallpapers.Program.DownloadBingXML();
             DesktopWallpapers.Program.LoadXML();
 
-
             // Write values to dialog box.
-
 
             foreach (DesktopWallpapers.Program.BingImage BI in DesktopWallpapers.Program.BingImages)
             {
@@ -64,20 +62,18 @@ namespace DesktopWallpapers
                     msg = BI.copyright;
                 }
             }
-
-            label1.Text = "Result from Bing: " + msg;
+            
+            toolStripStatusLabel1.Text = msg;
             DesktopWallpapers.Program.DownloadImage("http://www.bing.com" + url);
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {            
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             this.Close();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void setToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //Set the desktop background
-            //label1.Text = "Old location: "+DesktopWallpapers.Program.GetWallpaper();
             DesktopWallpapers.Program.SetCurrentImageAsWallpaper();            
         }
     }

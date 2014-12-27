@@ -10,6 +10,8 @@ using System.IO;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
+using CommandLine;
+using CommandLine.Text;
 
 [assembly: log4net.Config.XmlConfigurator(Watch = true)]
 
@@ -47,6 +49,29 @@ namespace DesktopWallpapers
         static extern bool AttachConsole(int dwProcessId);
         private const int ATTACH_PARENT_PROCESS = -1;
 
+#region CommandLineParams
+        class Options
+        {
+            [Option('s', "setwallpaper", DefaultValue = false, HelpText = "Set wallpaper!")]
+            public bool SetWallpaper { get; set; }
+
+            [Option('m', "mediaportal", DefaultValue = false, HelpText = "Set wallpaper in MediaPortal!")]
+            public bool SetMediaportal { get; set; }
+
+            [Option('v', "verbose", DefaultValue = false, HelpText = "Prints all messages to standard output.")]
+            public bool Verbose { get; set; }
+
+            [HelpOption]
+            public string GetUsage()
+            {
+                return HelpText.AutoBuild(this,
+                  (HelpText current) => HelpText.DefaultParsingErrorsHandler(this, current));
+            }
+        }
+
+        
+      
+#endregion
 
 
         /// <summary>
@@ -55,51 +80,68 @@ namespace DesktopWallpapers
         [STAThread]
         static void Main(string[] args)
         {
+            //Configure log4net!
+            log4net.Config.XmlConfigurator.Configure();
+
             Properties.Settings.Default.Setting = "Foo";
             Properties.Settings.Default.Save();
             Log.Debug("Application Starting");
             Log.Debug("Appdir:" + AppDir);
 
-            if (args == null)
+            if (args == null || args.Length == 0)
             {
+                Log.Debug("Windows Form mode");
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
                 Application.Run(new Form1());                        
             }
             else
             {
+                Log.Debug("Command Line running!");
                 // redirect console output to parent process;
                 // must be before any calls to Console.WriteLine()
                 AttachConsole(ATTACH_PARENT_PROCESS);
 
-                Console.WriteLine();
-                // to demonstrate where the console output is going
-                int argCount = args == null ? 0 : args.Length;
-                Console.WriteLine("You specified {0} arguments:", argCount);
-                for (int i = 0; i < argCount; i++)
+                Options options = new Options();
+                
+                if (CommandLine.Parser.Default.ParseArguments(args, options))
                 {
-                    Console.WriteLine("  {0}", args[i]);
+                    // consume values here
+                    if (options.Verbose) Log.Debug("Verbose operations!");
+                    if (options.Verbose) Console.WriteLine("Verbose!");
+                    if (options.SetWallpaper)
+                    {                        
+                        if (options.Verbose) Console.WriteLine("Setting wallpaper!");
+                        SetCurrentImageAsWallpaper();
+                    }
+
+                    if (options.SetMediaportal)
+                    {
+                        if (options.Verbose) Log.Debug("Use wallpaper in Mediaportal!");
+                    }
+                } else
+                {
+                    Console.WriteLine();
+                //     Console.WriteLine(options.GetUsage());
+                    Log.Debug("Failed to parse command line parameters!");
                 }
-                        
-                Console.WriteLine();
             }
-            
+            Log.Debug("Application closing");
         }
 
         public static void LoadXML()
         {
             string value = File.ReadAllText(LocalXmlFilename);
             string url = "";
-
        
-            Log.Info("PictureOfTheDay: Loaded xml: " + value.Length);
+            Log.Info("Loaded xml: " + value.Length);
             XmlDocument doc = new XmlDocument();
             try
             {                
                 BingImages.Clear();
                 doc.LoadXml(value);
                 System.Xml.XmlNodeList NodeList = doc.GetElementsByTagName("image");
-                Log.Info("PictureOfTheDay: NodeList count:" + NodeList.Count);
+                Log.Info("NodeList count:" + NodeList.Count);
                 foreach (XmlNode node in NodeList)
                 {
                     BingImage BI = new BingImage();
@@ -128,6 +170,21 @@ namespace DesktopWallpapers
 
         }
 
+        public static void ClearCache()
+        {
+            string LocalImage = LocalImageFilename;
+            string newLocalImage = LocalImageFilename + ".png";
+
+            if (File.Exists(LocalXmlFilename))
+                File.Delete(LocalXmlFilename);
+
+            if (File.Exists(LocalImage))
+                File.Delete(LocalImage);
+
+            if (File.Exists(newLocalImage))
+                File.Delete(newLocalImage);
+
+        }
        
 
         public static void DownloadBingXML()
@@ -137,10 +194,11 @@ namespace DesktopWallpapers
                 DateTime fileModifiedDate = File.GetLastWriteTime(LocalXmlFilename);
                 if (fileModifiedDate.AddMinutes(CacheTime) > DateTime.Now)
                 {
+                    Log.Debug("Using cached Bing XML");
                     return;
                 }
             }
-
+            Log.Debug("Downloading new Bing XML");
             WebClient client = new WebClient();
             client.Headers["User-Agent"] =
                     "Mozilla/4.0 (Compatible; Windows NT 5.1; MSIE 6.0) " +
@@ -156,9 +214,14 @@ namespace DesktopWallpapers
             {
                 Log.Error("Failed to download Bing XML: "+e.Message);             
             }
-            Log.Info("PictureOfTheDay: Downloaded XML-file");
+            Log.Info("Downloaded XML-file");
         }
 
+/// <summary>
+/// Download image from url
+/// </summary>
+/// <param name="url">URL to image</param>
+/// 
         public static void DownloadImage(string url)
         {
             string LocalImage = LocalImageFilename;
@@ -169,12 +232,13 @@ namespace DesktopWallpapers
                 DateTime fileModifiedDate = File.GetLastWriteTime(LocalImage);
                 if (fileModifiedDate.AddMinutes(CacheTime) > DateTime.Now)
                 {
+                    Log.Debug("Using cached Bing image file: "+LocalImage);
                     return;
                 }
             }
 
             WebClient client = new WebClient();
-            Log.Info("PictureOfTheDay: Save image from "+url+" to " + LocalImage);
+            Log.Info("Save image from "+url+" to " + LocalImage);
 
             if (File.Exists(LocalImage))
                 File.Delete(LocalImage);
@@ -196,15 +260,54 @@ namespace DesktopWallpapers
             img.Save(newLocalImage, ImageFormat.Png);
         }
 
-        ///<summary>
-        /// Function to set the wallpaper given a location
-        /// </summary>
-        ///<parameter>location of the file</parameter>
+/// <summary>
+/// Set the currently downloaded Image as Wallpaper
+/// </summary>
+        public static void SetCurrentImageAsWallpaper()
+        {
+            string url = "";
+            string msg = "";
+
+            Log.Debug("Setting wallpaper!");
+            DownloadBingXML();            
+
+            foreach (DesktopWallpapers.Program.BingImage BI in DesktopWallpapers.Program.BingImages)
+            {
+                if (BI.url == null)
+                {
+                    msg = "No URL found!";
+                }
+                else
+                {
+                    msg = BI.url;
+                    url = BI.url;
+                }
+
+                if (BI.copyright == null)
+                {
+                    msg = "No copyright found!";
+                }
+                else
+                {
+                    msg = BI.copyright;
+                }
+            }
+            Log.Debug("Msg: "+msg);
+            DownloadImage("http://www.bing.com" + url);
+            SetWallpaper(LocalImageFilename + ".png");
+        }
+
+///<summary>
+/// Function to set the wallpaper given a location
+/// </summary>
+///<parameter>location of the file</parameter>
         static void SetWallpaper(string location)
         {
             const string userRoot = "HKEY_CURRENT_USER";
             const string subkey = @"Control Panel\Desktop\";
-            const string keyName = userRoot + "\\" + subkey;           
+            const string keyName = userRoot + "\\" + subkey;
+            
+            Log.Debug("Setting wallpaper in registry");
 
             Microsoft.Win32.Registry.SetValue(keyName, "Wallpaper", location);
 
@@ -225,7 +328,7 @@ namespace DesktopWallpapers
             const string keyName = userRoot + "\\" + subkey;
 
             string str = (string) Microsoft.Win32.Registry.GetValue(keyName, "Wallpaper", null);
-
+            Log.Debug("GetWallpaper: "+str);
             return str;
         }
 

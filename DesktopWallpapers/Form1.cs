@@ -17,11 +17,18 @@ namespace DesktopWallpapers
             InitializeComponent();
 
             GrabPictureFromBing();
-            Image img = Image.FromFile(DesktopWallpapers.Program.LocalImageFilename);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.Image = img;
-            //pictureBox1.Height = 77*3;
-            //pictureBox1.Width = 136*3;
+            try
+            {
+                Image img = Image.FromFile(DesktopWallpapers.Program.LocalImageFilename);
+                pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+                pictureBox1.Image = img;
+                //pictureBox1.Height = 77*3;
+                //pictureBox1.Width = 136*3;
+            }
+            catch (Exception e)
+            {
+                DesktopWallpapers.Program.ClearCache();
+            }
         }
 
         public void GrabPictureFromBing()
@@ -63,8 +70,15 @@ namespace DesktopWallpapers
         }
 
         private void button1_Click(object sender, EventArgs e)
+        {            
+            this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
         {
-            label1.Text = DesktopWallpapers.Program.GetWallpaper();
+            //Set the desktop background
+            //label1.Text = "Old location: "+DesktopWallpapers.Program.GetWallpaper();
+            DesktopWallpapers.Program.SetCurrentImageAsWallpaper();            
         }
     }
 }

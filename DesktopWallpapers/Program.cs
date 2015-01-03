@@ -320,6 +320,7 @@ namespace DesktopWallpapers
                 if (File.Exists(fileName))
                     File.Delete(fileName);
                 img.Save(fileName, ImageFormat.Png);
+                Log.Info("Save MPFile: " + fileName);
             }
         }
 

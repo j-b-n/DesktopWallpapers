@@ -315,7 +315,9 @@ namespace DesktopWallpapers
         {
             Image img = FromFile(DesktopWallpapers.Program.settings.LocalImageFilename);              
             foreach (string fileName in settings.MPFiles)
-            {                                  
+            {
+                if (File.Exists(fileName))
+                    File.Delete(fileName);
                 img.Save(fileName, ImageFormat.Png);
             }
         }

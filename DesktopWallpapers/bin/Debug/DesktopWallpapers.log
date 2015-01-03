@@ -1,0 +1,779 @@
+2014-12-26 13:06:18,267 [9] DEBUG DesktopWallpapers.Program - Application Starting
+2014-12-26 13:06:18,292 [9] DEBUG DesktopWallpapers.Program - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-26 13:06:18,306 [9] INFO DesktopWallpapers.Program - PictureOfTheDay: Loaded xml: 1747
+2014-12-26 13:06:18,307 [9] INFO DesktopWallpapers.Program - PictureOfTheDay: NodeList count:1
+2014-12-26 13:06:25,299 [10] DEBUG DesktopWallpapers.Program - Application Starting
+2014-12-26 13:06:25,315 [10] DEBUG DesktopWallpapers.Program - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-26 13:06:25,329 [10] INFO DesktopWallpapers.Program - PictureOfTheDay: Loaded xml: 1747
+2014-12-26 13:06:25,330 [10] INFO DesktopWallpapers.Program - PictureOfTheDay: NodeList count:1
+2014-12-26 13:07:10,602 [7] DEBUG DesktopWallpapers.Program - Application Starting
+2014-12-26 13:07:10,619 [7] DEBUG DesktopWallpapers.Program - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-26 13:07:10,632 [7] INFO DesktopWallpapers.Program - PictureOfTheDay: Loaded xml: 1747
+2014-12-26 13:07:10,632 [7] INFO DesktopWallpapers.Program - PictureOfTheDay: NodeList count:1
+2014-12-26 13:08:15,198 [1] DEBUG DesktopWallpapers.Program - Application Starting
+2014-12-26 13:08:15,225 [1] DEBUG DesktopWallpapers.Program - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-26 13:11:20,437 [10] DEBUG DesktopWallpapers.Program - Application Starting
+2014-12-26 13:11:20,457 [10] DEBUG DesktopWallpapers.Program - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-26 13:11:20,457 [10] DEBUG DesktopWallpapers.Program - Windows Form mode
+2014-12-26 13:11:20,472 [10] INFO DesktopWallpapers.Program - Loaded xml: 1747
+2014-12-26 13:11:20,472 [10] INFO DesktopWallpapers.Program - NodeList count:1
+2014-12-26 13:14:23,012 [9] DEBUG DesktopWallpapers.Program - Application Starting
+2014-12-26 13:14:23,031 [9] DEBUG DesktopWallpapers.Program - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-26 13:14:23,031 [9] DEBUG DesktopWallpapers.Program - Windows Form mode
+2014-12-26 13:14:23,043 [9] DEBUG DesktopWallpapers.Program - Using cached Bing XML
+2014-12-26 13:14:23,044 [9] INFO DesktopWallpapers.Program - Loaded xml: 1747
+2014-12-26 13:14:23,045 [9] INFO DesktopWallpapers.Program - NodeList count:1
+2014-12-26 13:14:23,046 [9] DEBUG DesktopWallpapers.Program - Using cached Bing image file: C:\Users\joabj85\background
+2014-12-26 13:15:11,486 [1] DEBUG DesktopWallpapers.Program - Application Starting
+2014-12-26 13:15:11,518 [1] DEBUG DesktopWallpapers.Program - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-26 13:15:11,519 [1] DEBUG DesktopWallpapers.Program - Command Line running!
+2014-12-26 13:15:11,554 [1] DEBUG DesktopWallpapers.Program - Verbose operations!
+2014-12-26 13:15:11,556 [1] DEBUG DesktopWallpapers.Program - Setting wallpaper!
+2014-12-26 13:15:11,558 [1] DEBUG DesktopWallpapers.Program - Using cached Bing XML
+2014-12-26 13:15:11,559 [1] DEBUG DesktopWallpapers.Program - Msg: 
+2014-12-26 13:15:11,560 [1] DEBUG DesktopWallpapers.Program - Using cached Bing image file: C:\Users\joabj85\background
+2014-12-26 13:15:11,561 [1] DEBUG DesktopWallpapers.Program - Setting wallpaper in registry
+2014-12-26 13:15:17,694 [1] DEBUG DesktopWallpapers.Program - Application Starting
+2014-12-26 13:15:17,727 [1] DEBUG DesktopWallpapers.Program - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-26 13:15:17,727 [1] DEBUG DesktopWallpapers.Program - Windows Form mode
+2014-12-26 13:15:17,756 [1] DEBUG DesktopWallpapers.Program - Using cached Bing XML
+2014-12-26 13:15:17,758 [1] INFO DesktopWallpapers.Program - Loaded xml: 1747
+2014-12-26 13:15:17,759 [1] INFO DesktopWallpapers.Program - NodeList count:1
+2014-12-26 13:15:17,761 [1] DEBUG DesktopWallpapers.Program - Using cached Bing image file: C:\Users\joabj85\background
+2014-12-26 13:16:43,166 [1] DEBUG DesktopWallpapers.Program - Application Starting
+2014-12-26 13:16:43,180 [1] DEBUG DesktopWallpapers.Program - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-26 13:16:43,180 [1] DEBUG DesktopWallpapers.Program - Command Line running!
+2014-12-26 13:16:43,194 [1] DEBUG DesktopWallpapers.Program - Verbose operations!
+2014-12-26 13:16:43,195 [1] DEBUG DesktopWallpapers.Program - Setting wallpaper!
+2014-12-26 13:16:43,196 [1] DEBUG DesktopWallpapers.Program - Using cached Bing XML
+2014-12-26 13:16:43,196 [1] DEBUG DesktopWallpapers.Program - Msg: 
+2014-12-26 13:16:43,197 [1] DEBUG DesktopWallpapers.Program - Using cached Bing image file: C:\Users\joabj85\background
+2014-12-26 13:16:43,197 [1] DEBUG DesktopWallpapers.Program - Setting wallpaper in registry
+2014-12-26 13:16:47,272 [1] DEBUG DesktopWallpapers.Program - Application closing
+2014-12-26 13:16:47,488 [1] DEBUG DesktopWallpapers.Program - Application Starting
+2014-12-26 13:16:47,503 [1] DEBUG DesktopWallpapers.Program - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-26 13:16:47,503 [1] DEBUG DesktopWallpapers.Program - Command Line running!
+2014-12-26 13:16:47,517 [1] DEBUG DesktopWallpapers.Program - Verbose operations!
+2014-12-26 13:16:47,518 [1] DEBUG DesktopWallpapers.Program - Setting wallpaper!
+2014-12-26 13:16:47,519 [1] DEBUG DesktopWallpapers.Program - Using cached Bing XML
+2014-12-26 13:16:47,519 [1] DEBUG DesktopWallpapers.Program - Msg: 
+2014-12-26 13:16:47,520 [1] DEBUG DesktopWallpapers.Program - Using cached Bing image file: C:\Users\joabj85\background
+2014-12-26 13:16:47,520 [1] DEBUG DesktopWallpapers.Program - Setting wallpaper in registry
+2014-12-26 13:16:51,437 [1] DEBUG DesktopWallpapers.Program - Application closing
+2014-12-26 13:17:10,820 [1] DEBUG DesktopWallpapers.Program - Application Starting
+2014-12-26 13:17:10,874 [1] DEBUG DesktopWallpapers.Program - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-26 13:17:10,875 [1] DEBUG DesktopWallpapers.Program - Command Line running!
+2014-12-26 13:17:10,937 [1] DEBUG DesktopWallpapers.Program - Failed to parse command line parameters!
+2014-12-26 13:17:10,938 [1] DEBUG DesktopWallpapers.Program - Application closing
+2014-12-26 13:17:22,497 [1] DEBUG DesktopWallpapers.Program - Application Starting
+2014-12-26 13:17:22,510 [1] DEBUG DesktopWallpapers.Program - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-26 13:17:22,511 [1] DEBUG DesktopWallpapers.Program - Command Line running!
+2014-12-26 13:17:22,525 [1] DEBUG DesktopWallpapers.Program - Verbose operations!
+2014-12-26 13:17:22,525 [1] DEBUG DesktopWallpapers.Program - Setting wallpaper!
+2014-12-26 13:17:22,527 [1] DEBUG DesktopWallpapers.Program - Using cached Bing XML
+2014-12-26 13:17:22,527 [1] DEBUG DesktopWallpapers.Program - Msg: 
+2014-12-26 13:17:22,527 [1] DEBUG DesktopWallpapers.Program - Using cached Bing image file: C:\Users\joabj85\background
+2014-12-26 13:17:22,527 [1] DEBUG DesktopWallpapers.Program - Setting wallpaper in registry
+2014-12-26 13:17:26,446 [1] DEBUG DesktopWallpapers.Program - Application closing
+2014-12-26 13:17:53,109 [1] DEBUG DesktopWallpapers.Program - Application Starting
+2014-12-26 13:17:53,142 [1] DEBUG DesktopWallpapers.Program - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-26 13:17:53,143 [1] DEBUG DesktopWallpapers.Program - Command Line running!
+2014-12-26 13:17:53,178 [1] DEBUG DesktopWallpapers.Program - Verbose operations!
+2014-12-26 13:17:53,179 [1] DEBUG DesktopWallpapers.Program - Application closing
+2014-12-26 13:18:00,695 [1] DEBUG DesktopWallpapers.Program - Application Starting
+2014-12-26 13:18:00,750 [1] DEBUG DesktopWallpapers.Program - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-26 13:18:00,750 [1] DEBUG DesktopWallpapers.Program - Command Line running!
+2014-12-26 13:18:00,809 [1] DEBUG DesktopWallpapers.Program - Verbose operations!
+2014-12-26 13:18:00,811 [1] DEBUG DesktopWallpapers.Program - Setting wallpaper!
+2014-12-26 13:18:00,815 [1] DEBUG DesktopWallpapers.Program - Using cached Bing XML
+2014-12-26 13:18:00,816 [1] DEBUG DesktopWallpapers.Program - Msg: 
+2014-12-26 13:18:00,818 [1] DEBUG DesktopWallpapers.Program - Using cached Bing image file: C:\Users\joabj85\background
+2014-12-26 13:18:00,819 [1] DEBUG DesktopWallpapers.Program - Setting wallpaper in registry
+2014-12-26 13:18:04,850 [1] DEBUG DesktopWallpapers.Program - Application closing
+2014-12-26 13:18:12,698 [1] DEBUG DesktopWallpapers.Program - Application Starting
+2014-12-26 13:18:12,752 [1] DEBUG DesktopWallpapers.Program - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-26 13:18:12,753 [1] DEBUG DesktopWallpapers.Program - Windows Form mode
+2014-12-26 13:18:12,797 [1] DEBUG DesktopWallpapers.Program - Using cached Bing XML
+2014-12-26 13:18:12,799 [1] INFO DesktopWallpapers.Program - Loaded xml: 1747
+2014-12-26 13:18:12,800 [1] INFO DesktopWallpapers.Program - NodeList count:1
+2014-12-26 13:18:12,802 [1] DEBUG DesktopWallpapers.Program - Using cached Bing image file: C:\Users\joabj85\background
+2014-12-26 13:18:24,285 [1] DEBUG DesktopWallpapers.Program - Application closing
+2014-12-26 13:21:29,046 [1] DEBUG DesktopWallpapers.Program - Application Starting
+2014-12-26 13:21:29,092 [1] DEBUG DesktopWallpapers.Program - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-26 13:21:29,092 [1] DEBUG DesktopWallpapers.Program - Command Line running!
+2014-12-26 13:21:29,128 [1] DEBUG DesktopWallpapers.Program - Verbose operations!
+2014-12-26 13:21:29,129 [1] DEBUG DesktopWallpapers.Program - Use wallpaper in Mediaporta!
+2014-12-26 13:21:29,129 [1] DEBUG DesktopWallpapers.Program - Application closing
+2014-12-27 10:02:57,595 [10] DEBUG DesktopWallpapers.Program - Application Starting
+2014-12-27 10:02:57,629 [10] DEBUG DesktopWallpapers.Program - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-27 10:02:57,629 [10] DEBUG DesktopWallpapers.Program - Windows Form mode
+2014-12-27 10:02:57,658 [10] DEBUG DesktopWallpapers.Program - Downloading new Bing XML
+2014-12-27 10:02:57,839 [10] INFO DesktopWallpapers.Program - Downloaded XML-file
+2014-12-27 10:02:57,841 [10] INFO DesktopWallpapers.Program - Loaded xml: 1721
+2014-12-27 10:02:57,845 [10] INFO DesktopWallpapers.Program - NodeList count:1
+2014-12-27 10:02:57,848 [10] INFO DesktopWallpapers.Program - Save image from http://www.bing.com/az/hprichbg/rb/CapilanoXmasLights_EN-US12040063468_1366x768.jpg to C:\Users\joabj85\background
+2014-12-27 10:03:14,157 [10] DEBUG DesktopWallpapers.Program - Setting wallpaper!
+2014-12-27 10:03:14,158 [10] DEBUG DesktopWallpapers.Program - Using cached Bing XML
+2014-12-27 10:03:14,158 [10] DEBUG DesktopWallpapers.Program - Msg: Capilano Suspension Bridge in North Vancouver, British Columbia, Canada (© Andy Clark/Corbis)
+2014-12-27 10:03:14,159 [10] DEBUG DesktopWallpapers.Program - Using cached Bing image file: C:\Users\joabj85\background
+2014-12-27 10:03:14,160 [10] DEBUG DesktopWallpapers.Program - Setting wallpaper in registry
+2014-12-27 10:03:18,837 [10] DEBUG DesktopWallpapers.Program - Application closing
+2014-12-27 11:10:40,703 [9] DEBUG DesktopWallpapers.Program - Application Starting
+2014-12-27 11:10:40,725 [9] DEBUG DesktopWallpapers.Program - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-27 11:10:40,725 [9] DEBUG DesktopWallpapers.Program - Windows Form mode
+2014-12-27 11:10:40,752 [9] DEBUG DesktopWallpapers.Program - Using cached Bing XML
+2014-12-27 11:10:40,753 [9] INFO DesktopWallpapers.Program - Loaded xml: 1721
+2014-12-27 11:10:40,754 [9] INFO DesktopWallpapers.Program - NodeList count:1
+2014-12-27 11:10:40,756 [9] DEBUG DesktopWallpapers.Program - Using cached Bing image file: C:\Users\joabj85\background
+2014-12-27 11:10:45,027 [9] DEBUG DesktopWallpapers.Program - Application closing
+2014-12-27 11:12:06,830 [9] DEBUG DesktopWallpapers.Program - Application Starting
+2014-12-27 11:12:06,847 [9] DEBUG DesktopWallpapers.Program - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-27 11:12:06,847 [9] DEBUG DesktopWallpapers.Program - Windows Form mode
+2014-12-27 11:12:06,868 [9] DEBUG DesktopWallpapers.Program - Using cached Bing XML
+2014-12-27 11:12:06,870 [9] INFO DesktopWallpapers.Program - Loaded xml: 1721
+2014-12-27 11:12:06,870 [9] INFO DesktopWallpapers.Program - NodeList count:1
+2014-12-27 11:12:06,871 [9] DEBUG DesktopWallpapers.Program - Using cached Bing image file: C:\Users\joabj85\background
+2014-12-27 11:12:12,071 [9] DEBUG DesktopWallpapers.Program - Application closing
+2014-12-27 11:13:50,959 [10] DEBUG DesktopWallpapers.Program - Application Starting
+2014-12-27 11:13:50,980 [10] DEBUG DesktopWallpapers.Program - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-27 11:13:50,981 [10] DEBUG DesktopWallpapers.Program - Windows Form mode
+2014-12-27 11:13:51,003 [10] DEBUG DesktopWallpapers.Program - Using cached Bing XML
+2014-12-27 11:13:51,005 [10] INFO DesktopWallpapers.Program - Loaded xml: 1721
+2014-12-27 11:13:51,006 [10] INFO DesktopWallpapers.Program - NodeList count:1
+2014-12-27 11:13:51,007 [10] DEBUG DesktopWallpapers.Program - Using cached Bing image file: C:\Users\joabj85\background
+2014-12-27 11:14:10,431 [10] DEBUG DesktopWallpapers.Program - Application closing
+2014-12-27 11:15:22,971 [9] DEBUG DesktopWallpapers.Program - Application Starting
+2014-12-27 11:15:22,995 [9] DEBUG DesktopWallpapers.Program - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-27 11:15:22,995 [9] DEBUG DesktopWallpapers.Program - Windows Form mode
+2014-12-27 11:15:23,013 [9] DEBUG DesktopWallpapers.Program - Using cached Bing XML
+2014-12-27 11:15:23,014 [9] INFO DesktopWallpapers.Program - Loaded xml: 1721
+2014-12-27 11:15:23,014 [9] INFO DesktopWallpapers.Program - NodeList count:1
+2014-12-27 11:15:23,015 [9] DEBUG DesktopWallpapers.Program - Using cached Bing image file: C:\Users\joabj85\background
+2014-12-27 11:15:34,662 [9] DEBUG DesktopWallpapers.Program - Application closing
+2014-12-27 11:16:07,067 [9] DEBUG DesktopWallpapers.Program - Application Starting
+2014-12-27 11:16:07,089 [9] DEBUG DesktopWallpapers.Program - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-27 11:16:07,089 [9] DEBUG DesktopWallpapers.Program - Windows Form mode
+2014-12-27 11:16:07,111 [9] DEBUG DesktopWallpapers.Program - Using cached Bing XML
+2014-12-27 11:16:07,112 [9] INFO DesktopWallpapers.Program - Loaded xml: 1721
+2014-12-27 11:16:07,112 [9] INFO DesktopWallpapers.Program - NodeList count:1
+2014-12-27 11:16:07,114 [9] DEBUG DesktopWallpapers.Program - Using cached Bing image file: C:\Users\joabj85\background
+2014-12-27 11:16:14,014 [9] DEBUG DesktopWallpapers.Program - Application closing
+2014-12-27 11:16:33,388 [9] DEBUG DesktopWallpapers.Program - Application Starting
+2014-12-27 11:16:33,410 [9] DEBUG DesktopWallpapers.Program - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-27 11:16:33,411 [9] DEBUG DesktopWallpapers.Program - Windows Form mode
+2014-12-27 11:16:33,429 [9] DEBUG DesktopWallpapers.Program - Using cached Bing XML
+2014-12-27 11:16:33,430 [9] INFO DesktopWallpapers.Program - Loaded xml: 1721
+2014-12-27 11:16:33,431 [9] INFO DesktopWallpapers.Program - NodeList count:1
+2014-12-27 11:16:33,432 [9] DEBUG DesktopWallpapers.Program - Using cached Bing image file: C:\Users\joabj85\background
+2014-12-27 11:17:01,594 [9] DEBUG DesktopWallpapers.Program - Application closing
+2014-12-27 11:20:12,794 [7] DEBUG - Application Starting
+2014-12-27 11:20:12,815 [7] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-27 11:20:12,816 [7] DEBUG - Windows Form mode
+2014-12-27 11:20:12,834 [7] DEBUG - Using cached Bing XML
+2014-12-27 11:20:12,835 [7] INFO - Loaded xml: 1721
+2014-12-27 11:20:12,836 [7] INFO - NodeList count:1
+2014-12-27 11:20:12,837 [7] DEBUG - Using cached Bing image file: C:\Users\joabj85\background
+2014-12-27 11:20:23,101 [7] DEBUG - Application closing
+2014-12-27 11:21:55,765 [9] DEBUG - Application Starting
+2014-12-27 11:21:55,784 [9] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-27 11:21:55,785 [9] DEBUG - Windows Form mode
+2014-12-27 11:21:55,804 [9] DEBUG - Using cached Bing XML
+2014-12-27 11:21:55,806 [9] INFO - Loaded xml: 1721
+2014-12-27 11:21:55,806 [9] INFO - NodeList count:1
+2014-12-27 11:21:55,807 [9] DEBUG - Using cached Bing image file: C:\Users\joabj85\background
+2014-12-27 11:22:00,912 [9] DEBUG - Application closing
+2014-12-27 11:25:13,146 [9] DEBUG - Application Starting
+2014-12-27 11:25:13,164 [9] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-27 11:25:13,164 [9] DEBUG - Windows Form mode
+2014-12-27 11:25:13,196 [9] DEBUG - Using cached Bing XML
+2014-12-27 11:25:13,197 [9] INFO - Loaded xml: 1721
+2014-12-27 11:25:13,197 [9] INFO - NodeList count:1
+2014-12-27 11:25:13,198 [9] DEBUG - Using cached Bing image file: C:\Users\joabj85\background
+2014-12-27 11:25:17,844 [9] DEBUG - Application closing
+2014-12-27 12:04:23,331 [9] DEBUG - Application Starting
+2014-12-27 12:04:23,348 [9] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-27 12:04:23,348 [9] DEBUG - Windows Form mode
+2014-12-27 12:04:23,380 [9] DEBUG - Downloading new Bing XML
+2014-12-27 12:04:23,572 [9] INFO - Downloaded XML-file
+2014-12-27 12:04:23,573 [9] INFO - Loaded xml: 1721
+2014-12-27 12:04:23,574 [9] INFO - NodeList count:1
+2014-12-27 12:04:23,575 [9] INFO - Save image from http://www.bing.com/az/hprichbg/rb/CapilanoXmasLights_EN-US12040063468_1366x768.jpg to C:\Users\joabj85\background
+2014-12-27 12:04:30,590 [9] DEBUG - Application closing
+2014-12-27 12:05:26,763 [8] DEBUG - Application Starting
+2014-12-27 12:05:26,781 [8] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-27 12:05:26,782 [8] DEBUG - Windows Form mode
+2014-12-27 12:05:26,810 [8] DEBUG - Using cached Bing XML
+2014-12-27 12:05:26,812 [8] INFO - Loaded xml: 1721
+2014-12-27 12:05:26,813 [8] INFO - NodeList count:1
+2014-12-27 12:05:26,814 [8] DEBUG - Using cached Bing image file: C:\Users\joabj85\background
+2014-12-27 12:05:29,494 [8] DEBUG - Application closing
+2014-12-27 12:07:02,999 [9] DEBUG - Application Starting
+2014-12-27 12:07:03,015 [9] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-27 12:07:03,015 [9] DEBUG - Windows Form mode
+2014-12-27 12:07:23,207 [9] DEBUG - Application Starting
+2014-12-27 12:07:23,229 [9] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-27 12:07:23,229 [9] DEBUG - Windows Form mode
+2014-12-27 12:07:23,255 [9] DEBUG - Using cached Bing XML
+2014-12-27 12:07:23,256 [9] INFO - Loaded xml: 1721
+2014-12-27 12:07:23,256 [9] INFO - NodeList count:1
+2014-12-27 12:07:23,257 [9] DEBUG - Using cached Bing image file: C:\Users\joabj85\background
+2014-12-27 12:07:28,936 [9] DEBUG - Application closing
+2014-12-27 12:08:15,987 [9] DEBUG - Application Starting
+2014-12-27 12:08:16,005 [9] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-27 12:08:16,005 [9] DEBUG - Windows Form mode
+2014-12-27 12:08:16,029 [9] DEBUG - Using cached Bing XML
+2014-12-27 12:08:16,030 [9] INFO - Loaded xml: 1721
+2014-12-27 12:08:16,031 [9] INFO - NodeList count:1
+2014-12-27 12:08:16,032 [9] DEBUG - Using cached Bing image file: C:\Users\joabj85\background
+2014-12-27 12:08:25,330 [9] DEBUG - Application closing
+2014-12-27 12:09:29,127 [8] DEBUG - Application Starting
+2014-12-27 12:09:29,141 [8] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-27 12:09:29,142 [8] DEBUG - Windows Form mode
+2014-12-27 12:09:29,164 [8] DEBUG - Using cached Bing XML
+2014-12-27 12:09:29,165 [8] INFO - Loaded xml: 1721
+2014-12-27 12:09:29,165 [8] INFO - NodeList count:1
+2014-12-27 12:09:29,166 [8] DEBUG - Using cached Bing image file: C:\Users\joabj85\background
+2014-12-27 12:09:34,443 [8] DEBUG - Application closing
+2014-12-27 12:09:55,454 [8] DEBUG - Application Starting
+2014-12-27 12:09:55,471 [8] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-27 12:09:55,471 [8] DEBUG - Windows Form mode
+2014-12-27 12:09:55,494 [8] DEBUG - Using cached Bing XML
+2014-12-27 12:09:55,495 [8] INFO - Loaded xml: 1721
+2014-12-27 12:09:55,496 [8] INFO - NodeList count:1
+2014-12-27 12:09:55,497 [8] DEBUG - Using cached Bing image file: C:\Users\joabj85\background
+2014-12-27 12:10:00,077 [8] DEBUG - Application closing
+2014-12-27 12:10:09,441 [9] DEBUG - Application Starting
+2014-12-27 12:10:09,456 [9] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-27 12:10:09,456 [9] DEBUG - Windows Form mode
+2014-12-27 12:10:09,481 [9] DEBUG - Using cached Bing XML
+2014-12-27 12:10:09,482 [9] INFO - Loaded xml: 1721
+2014-12-27 12:10:09,482 [9] INFO - NodeList count:1
+2014-12-27 12:10:09,483 [9] DEBUG - Using cached Bing image file: C:\Users\joabj85\background
+2014-12-27 12:10:11,659 [9] DEBUG - Application closing
+2014-12-27 12:10:17,506 [9] DEBUG - Application Starting
+2014-12-27 12:10:17,521 [9] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-27 12:10:17,522 [9] DEBUG - Windows Form mode
+2014-12-27 12:10:17,544 [9] DEBUG - Using cached Bing XML
+2014-12-27 12:10:17,545 [9] INFO - Loaded xml: 1721
+2014-12-27 12:10:17,545 [9] INFO - NodeList count:1
+2014-12-27 12:10:17,546 [9] DEBUG - Using cached Bing image file: C:\Users\joabj85\background
+2014-12-27 12:10:20,814 [9] DEBUG - Application closing
+2014-12-27 12:10:49,467 [8] DEBUG - Application Starting
+2014-12-27 12:10:49,486 [8] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-27 12:10:49,486 [8] DEBUG - Windows Form mode
+2014-12-27 12:10:49,512 [8] DEBUG - Using cached Bing XML
+2014-12-27 12:10:49,514 [8] INFO - Loaded xml: 1721
+2014-12-27 12:10:49,514 [8] INFO - NodeList count:1
+2014-12-27 12:10:49,516 [8] DEBUG - Using cached Bing image file: C:\Users\joabj85\background
+2014-12-27 12:11:18,510 [8] DEBUG - Application closing
+2014-12-27 12:17:06,226 [9] DEBUG - Application Starting
+2014-12-27 12:17:06,243 [9] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-27 12:17:06,243 [9] DEBUG - Windows Form mode
+2014-12-27 12:17:06,268 [9] DEBUG - Using cached Bing XML
+2014-12-27 12:17:06,269 [9] INFO - Loaded xml: 1721
+2014-12-27 12:17:06,269 [9] INFO - NodeList count:1
+2014-12-27 12:17:06,270 [9] DEBUG - Using cached Bing image file: C:\Users\joabj85\background
+2014-12-27 12:17:08,936 [9] DEBUG - Application closing
+2014-12-27 12:17:26,769 [10] DEBUG - Application Starting
+2014-12-27 12:17:26,784 [10] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-27 12:17:26,784 [10] DEBUG - Windows Form mode
+2014-12-27 12:17:26,807 [10] DEBUG - Using cached Bing XML
+2014-12-27 12:17:26,808 [10] INFO - Loaded xml: 1721
+2014-12-27 12:17:26,808 [10] INFO - NodeList count:1
+2014-12-27 12:17:26,809 [10] DEBUG - Using cached Bing image file: C:\Users\joabj85\background
+2014-12-27 12:17:29,599 [10] DEBUG - Application closing
+2014-12-27 12:17:36,199 [9] DEBUG - Application Starting
+2014-12-27 12:17:36,213 [9] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-27 12:17:36,214 [9] DEBUG - Windows Form mode
+2014-12-27 12:17:36,236 [9] DEBUG - Using cached Bing XML
+2014-12-27 12:17:36,237 [9] INFO - Loaded xml: 1721
+2014-12-27 12:17:36,237 [9] INFO - NodeList count:1
+2014-12-27 12:17:36,239 [9] DEBUG - Using cached Bing image file: C:\Users\joabj85\background
+2014-12-27 12:17:39,371 [9] DEBUG - Application closing
+2014-12-27 12:17:50,874 [9] DEBUG - Application Starting
+2014-12-27 12:17:50,890 [9] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-27 12:17:50,890 [9] DEBUG - Windows Form mode
+2014-12-27 12:17:50,912 [9] DEBUG - Using cached Bing XML
+2014-12-27 12:17:50,913 [9] INFO - Loaded xml: 1721
+2014-12-27 12:17:50,914 [9] INFO - NodeList count:1
+2014-12-27 12:17:50,915 [9] DEBUG - Using cached Bing image file: C:\Users\joabj85\background
+2014-12-27 12:17:55,087 [9] DEBUG - Application closing
+2014-12-27 13:07:17,437 [9] DEBUG - Application Starting
+2014-12-27 13:07:17,456 [9] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-27 13:07:17,456 [9] DEBUG - Windows Form mode
+2014-12-27 13:07:17,482 [9] DEBUG - Using cached Bing XML
+2014-12-27 13:07:17,483 [9] INFO - Loaded xml: 1721
+2014-12-27 13:07:17,483 [9] INFO - NodeList count:1
+2014-12-27 13:07:17,484 [9] DEBUG - Using cached Bing image file: C:\Users\joabj85\background
+2014-12-27 13:07:25,851 [9] DEBUG - Application closing
+2014-12-27 16:21:04,315 [9] DEBUG - Application Starting
+2014-12-27 16:21:04,342 [9] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-27 16:21:04,342 [9] DEBUG - Windows Form mode
+2014-12-27 16:21:04,382 [9] DEBUG - Downloading new Bing XML
+2014-12-27 16:21:04,554 [9] INFO - Downloaded XML-file
+2014-12-27 16:21:04,559 [9] INFO - Loaded xml: 1721
+2014-12-27 16:21:04,559 [9] INFO - NodeList count:1
+2014-12-27 16:21:04,563 [9] INFO - Save image from http://www.bing.com/az/hprichbg/rb/CapilanoXmasLights_EN-US12040063468_1366x768.jpg to C:\Users\joabj85\background
+2014-12-27 16:21:42,568 [9] DEBUG - Application closing
+2014-12-27 16:22:04,221 [8] DEBUG - Application Starting
+2014-12-27 16:22:04,245 [8] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-27 16:22:04,245 [8] DEBUG - Windows Form mode
+2014-12-27 16:22:04,284 [8] DEBUG - Using cached Bing XML
+2014-12-27 16:22:04,286 [8] INFO - Loaded xml: 1721
+2014-12-27 16:22:04,286 [8] INFO - NodeList count:1
+2014-12-27 16:22:04,288 [8] DEBUG - Using cached Bing image file: C:\Users\joabj85\background
+2014-12-27 16:22:11,914 [8] DEBUG - Application closing
+2014-12-27 16:22:14,783 [10] DEBUG - Application Starting
+2014-12-27 16:22:14,811 [10] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-27 16:22:14,812 [10] DEBUG - Windows Form mode
+2014-12-27 16:22:14,846 [10] DEBUG - Using cached Bing XML
+2014-12-27 16:22:14,848 [10] INFO - Loaded xml: 1721
+2014-12-27 16:22:14,848 [10] INFO - NodeList count:1
+2014-12-27 16:22:14,850 [10] DEBUG - Using cached Bing image file: C:\Users\joabj85\background
+2014-12-27 16:22:27,771 [10] DEBUG - Application closing
+2014-12-27 16:22:34,560 [9] DEBUG - Application Starting
+2014-12-27 16:22:34,588 [9] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-27 16:22:34,589 [9] DEBUG - Windows Form mode
+2014-12-27 16:22:34,626 [9] DEBUG - Using cached Bing XML
+2014-12-27 16:22:34,627 [9] INFO - Loaded xml: 1721
+2014-12-27 16:22:34,628 [9] INFO - NodeList count:1
+2014-12-27 16:22:34,629 [9] DEBUG - Using cached Bing image file: C:\Users\joabj85\background
+2014-12-27 16:22:37,675 [9] DEBUG - Application closing
+2014-12-27 16:23:14,483 [8] DEBUG - Application Starting
+2014-12-27 16:23:14,509 [8] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-27 16:23:14,510 [8] DEBUG - Windows Form mode
+2014-12-27 16:23:14,545 [8] DEBUG - Using cached Bing XML
+2014-12-27 16:23:14,546 [8] INFO - Loaded xml: 1721
+2014-12-27 16:23:14,547 [8] INFO - NodeList count:1
+2014-12-27 16:23:14,548 [8] DEBUG - Using cached Bing image file: C:\Users\joabj85\background
+2014-12-27 16:23:30,798 [8] DEBUG - Application closing
+2014-12-27 16:24:03,579 [9] DEBUG - Application Starting
+2014-12-27 16:24:03,604 [9] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-27 16:24:03,604 [9] DEBUG - Windows Form mode
+2014-12-27 16:24:03,638 [9] DEBUG - Using cached Bing XML
+2014-12-27 16:24:03,640 [9] INFO - Loaded xml: 1721
+2014-12-27 16:24:03,640 [9] INFO - NodeList count:1
+2014-12-27 16:24:03,642 [9] DEBUG - Using cached Bing image file: C:\Users\joabj85\background
+2014-12-27 16:24:14,262 [9] DEBUG - Application closing
+2014-12-27 16:25:10,009 [8] DEBUG - Application Starting
+2014-12-27 16:25:10,050 [8] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-27 16:25:10,050 [8] DEBUG - Windows Form mode
+2014-12-27 16:25:10,102 [8] DEBUG - Using cached Bing XML
+2014-12-27 16:25:10,104 [8] INFO - Loaded xml: 1721
+2014-12-27 16:25:10,105 [8] INFO - NodeList count:1
+2014-12-27 16:25:10,107 [8] DEBUG - Using cached Bing image file: C:\Users\joabj85\background
+2014-12-27 16:25:15,085 [8] DEBUG - Application closing
+2014-12-27 16:25:24,143 [9] DEBUG - Application Starting
+2014-12-27 16:25:24,186 [9] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-27 16:25:24,186 [9] DEBUG - Windows Form mode
+2014-12-27 16:25:24,240 [9] DEBUG - Using cached Bing XML
+2014-12-27 16:25:24,244 [9] INFO - Loaded xml: 1721
+2014-12-27 16:25:24,245 [9] INFO - NodeList count:1
+2014-12-27 16:25:24,247 [9] DEBUG - Using cached Bing image file: C:\Users\joabj85\background
+2014-12-27 16:25:49,947 [9] DEBUG - Application closing
+2014-12-27 16:26:14,271 [8] DEBUG - Application Starting
+2014-12-27 16:26:14,310 [8] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-27 16:26:14,310 [8] DEBUG - Windows Form mode
+2014-12-27 16:26:14,363 [8] DEBUG - Using cached Bing XML
+2014-12-27 16:26:14,367 [8] INFO - Loaded xml: 1721
+2014-12-27 16:26:14,368 [8] INFO - NodeList count:1
+2014-12-27 16:26:14,370 [8] DEBUG - Using cached Bing image file: C:\Users\joabj85\background
+2014-12-27 16:26:50,584 [8] DEBUG - Application closing
+2014-12-27 16:27:20,523 [9] DEBUG - Application Starting
+2014-12-27 16:27:20,550 [9] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-27 16:27:20,550 [9] DEBUG - Windows Form mode
+2014-12-27 16:27:20,584 [9] DEBUG - Using cached Bing XML
+2014-12-27 16:27:20,585 [9] INFO - Loaded xml: 1721
+2014-12-27 16:27:20,586 [9] INFO - NodeList count:1
+2014-12-27 16:27:20,587 [9] DEBUG - Using cached Bing image file: C:\Users\joabj85\background
+2014-12-27 16:27:25,042 [9] DEBUG - Application closing
+2014-12-27 16:27:44,793 [9] DEBUG - Application Starting
+2014-12-27 16:27:44,836 [9] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-27 16:27:44,836 [9] DEBUG - Windows Form mode
+2014-12-27 16:27:44,888 [9] DEBUG - Using cached Bing XML
+2014-12-27 16:27:44,890 [9] INFO - Loaded xml: 1721
+2014-12-27 16:27:44,891 [9] INFO - NodeList count:1
+2014-12-27 16:27:44,893 [9] DEBUG - Using cached Bing image file: C:\Users\joabj85\background
+2014-12-27 16:27:57,327 [9] DEBUG - Application closing
+2014-12-27 16:28:11,695 [9] DEBUG - Application Starting
+2014-12-27 16:28:11,733 [9] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-27 16:28:11,734 [9] DEBUG - Windows Form mode
+2014-12-27 16:28:11,790 [9] DEBUG - Using cached Bing XML
+2014-12-27 16:28:11,792 [9] INFO - Loaded xml: 1721
+2014-12-27 16:28:11,793 [9] INFO - NodeList count:1
+2014-12-27 16:28:11,795 [9] DEBUG - Using cached Bing image file: C:\Users\joabj85\background
+2014-12-27 16:28:20,315 [9] DEBUG - Application closing
+2014-12-27 16:30:12,751 [9] DEBUG - Application Starting
+2014-12-27 16:30:12,787 [9] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-27 16:30:12,788 [9] DEBUG - Windows Form mode
+2014-12-27 16:30:12,846 [9] DEBUG - Using cached Bing XML
+2014-12-27 16:30:12,849 [9] INFO - Loaded xml: 1721
+2014-12-27 16:30:12,850 [9] INFO - NodeList count:1
+2014-12-27 16:30:12,852 [9] DEBUG - Using cached Bing image file: C:\Users\joabj85\background
+2014-12-27 16:30:21,283 [9] DEBUG - Application closing
+2014-12-27 16:30:43,621 [8] DEBUG - Application Starting
+2014-12-27 16:30:43,658 [8] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-27 16:30:43,659 [8] DEBUG - Windows Form mode
+2014-12-27 16:30:43,712 [8] DEBUG - Using cached Bing XML
+2014-12-27 16:30:43,714 [8] INFO - Loaded xml: 1721
+2014-12-27 16:30:43,715 [8] INFO - NodeList count:1
+2014-12-27 16:30:43,716 [8] DEBUG - Using cached Bing image file: C:\Users\joabj85\background
+2014-12-27 16:30:47,473 [8] DEBUG - Application closing
+2014-12-27 16:31:09,237 [9] DEBUG - Application Starting
+2014-12-27 16:31:09,273 [9] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-27 16:31:09,274 [9] DEBUG - Windows Form mode
+2014-12-27 16:31:09,326 [9] DEBUG - Using cached Bing XML
+2014-12-27 16:31:09,329 [9] INFO - Loaded xml: 1721
+2014-12-27 16:31:09,330 [9] INFO - NodeList count:1
+2014-12-27 16:31:09,331 [9] DEBUG - Using cached Bing image file: C:\Users\joabj85\background
+2014-12-27 16:31:13,406 [9] DEBUG - Application closing
+2014-12-27 16:31:38,724 [8] DEBUG - Application Starting
+2014-12-27 16:31:38,755 [8] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-27 16:31:38,756 [8] DEBUG - Windows Form mode
+2014-12-27 16:31:38,796 [8] DEBUG - Using cached Bing XML
+2014-12-27 16:31:38,799 [8] INFO - Loaded xml: 1721
+2014-12-27 16:31:38,799 [8] INFO - NodeList count:1
+2014-12-27 16:31:38,801 [8] DEBUG - Using cached Bing image file: C:\Users\joabj85\background
+2014-12-27 16:31:43,477 [8] DEBUG - Application closing
+2014-12-27 16:31:55,003 [9] DEBUG - Application Starting
+2014-12-27 16:31:55,025 [9] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-27 16:31:55,025 [9] DEBUG - Windows Form mode
+2014-12-27 16:31:55,059 [9] DEBUG - Using cached Bing XML
+2014-12-27 16:31:55,061 [9] INFO - Loaded xml: 1721
+2014-12-27 16:31:55,062 [9] INFO - NodeList count:1
+2014-12-27 16:31:55,064 [9] DEBUG - Using cached Bing image file: C:\Users\joabj85\background
+2014-12-27 16:32:04,396 [9] DEBUG - Application closing
+2014-12-27 16:32:27,696 [9] DEBUG - Application Starting
+2014-12-27 16:32:27,720 [9] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-27 16:32:27,720 [9] DEBUG - Windows Form mode
+2014-12-27 16:32:27,753 [9] DEBUG - Using cached Bing XML
+2014-12-27 16:32:27,755 [9] INFO - Loaded xml: 1721
+2014-12-27 16:32:27,755 [9] INFO - NodeList count:1
+2014-12-27 16:32:27,756 [9] DEBUG - Using cached Bing image file: C:\Users\joabj85\background
+2014-12-27 16:32:31,222 [9] DEBUG - Application closing
+2014-12-27 16:33:00,748 [9] DEBUG - Application Starting
+2014-12-27 16:33:00,785 [9] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-27 16:33:00,786 [9] DEBUG - Windows Form mode
+2014-12-27 16:33:00,843 [9] DEBUG - Using cached Bing XML
+2014-12-27 16:33:00,846 [9] INFO - Loaded xml: 1721
+2014-12-27 16:33:00,847 [9] INFO - NodeList count:1
+2014-12-27 16:33:00,849 [9] DEBUG - Using cached Bing image file: C:\Users\joabj85\background
+2014-12-27 16:33:15,756 [9] DEBUG - Application closing
+2014-12-27 16:36:16,664 [9] DEBUG - Application Starting
+2014-12-27 16:36:16,704 [9] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-27 16:36:16,705 [9] DEBUG - Windows Form mode
+2014-12-27 16:36:16,762 [9] DEBUG - Using cached Bing XML
+2014-12-27 16:36:16,764 [9] INFO - Loaded xml: 1721
+2014-12-27 16:36:16,765 [9] INFO - NodeList count:1
+2014-12-27 16:36:16,767 [9] DEBUG - Using cached Bing image file: C:\Users\joabj85\background
+2014-12-27 16:36:24,055 [9] DEBUG - Application closing
+2014-12-27 16:39:22,866 [9] DEBUG - Application Starting
+2014-12-27 16:39:22,893 [9] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-27 16:39:22,893 [9] DEBUG - Windows Form mode
+2014-12-27 16:39:22,929 [9] DEBUG - Using cached Bing XML
+2014-12-27 16:39:22,930 [9] INFO - Loaded xml: 1721
+2014-12-27 16:39:22,931 [9] INFO - NodeList count:1
+2014-12-27 16:39:22,932 [9] DEBUG - Using cached Bing image file: C:\Users\joabj85\background
+2014-12-27 16:39:32,110 [9] DEBUG - Application closing
+2014-12-27 16:40:12,585 [9] DEBUG - Application Starting
+2014-12-27 16:40:12,611 [9] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-27 16:40:12,611 [9] DEBUG - Windows Form mode
+2014-12-27 16:40:12,645 [9] DEBUG - Using cached Bing XML
+2014-12-27 16:40:12,647 [9] INFO - Loaded xml: 1721
+2014-12-27 16:40:12,647 [9] INFO - NodeList count:1
+2014-12-27 16:40:12,648 [9] DEBUG - Using cached Bing image file: C:\Users\joabj85\background
+2014-12-27 16:40:24,539 [9] DEBUG - Application closing
+2014-12-27 16:51:31,008 [9] DEBUG - Application Starting
+2014-12-27 16:51:31,032 [9] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-27 16:51:31,032 [9] DEBUG - Windows Form mode
+2014-12-27 16:51:31,067 [9] DEBUG - Using cached Bing XML
+2014-12-27 16:51:31,069 [9] INFO - Loaded xml: 1721
+2014-12-27 16:51:31,069 [9] INFO - NodeList count:1
+2014-12-27 16:51:31,070 [9] DEBUG - Using cached Bing image file: C:\Users\joabj85\background
+2014-12-27 16:52:17,981 [9] DEBUG - Application closing
+2014-12-27 16:52:54,264 [8] DEBUG - Application Starting
+2014-12-27 16:52:54,299 [8] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-27 16:52:54,299 [8] DEBUG - Windows Form mode
+2014-12-27 16:52:54,354 [8] DEBUG - Using cached Bing XML
+2014-12-27 16:52:54,357 [8] INFO - Loaded xml: 1721
+2014-12-27 16:52:54,358 [8] INFO - NodeList count:1
+2014-12-27 16:52:54,360 [8] DEBUG - Using cached Bing image file: C:\Users\joabj85\background
+2014-12-27 16:53:15,928 [8] DEBUG - Application closing
+2014-12-27 16:54:20,578 [8] DEBUG - Application Starting
+2014-12-27 16:54:20,602 [8] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-27 16:54:20,602 [8] DEBUG - Windows Form mode
+2014-12-27 16:54:20,636 [8] DEBUG - Using cached Bing XML
+2014-12-27 16:54:20,637 [8] INFO - Loaded xml: 1721
+2014-12-27 16:54:20,638 [8] INFO - NodeList count:1
+2014-12-27 16:54:20,639 [8] DEBUG - Using cached Bing image file: C:\Users\joabj85\background
+2014-12-27 16:54:34,374 [8] DEBUG - Application closing
+2014-12-28 09:45:48,799 [1] DEBUG - Application Starting
+2014-12-28 09:45:48,815 [1] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-28 09:45:48,815 [1] DEBUG - Command Line running!
+2014-12-28 09:45:48,846 [1] DEBUG - Setting wallpaper!
+2014-12-28 09:45:48,846 [1] DEBUG - Downloading new Bing XML
+2014-12-28 09:45:49,612 [1] INFO - Downloaded XML-file
+2014-12-28 09:45:49,612 [1] DEBUG - Msg: 
+2014-12-28 09:45:49,612 [1] INFO - Save image from http://www.bing.com to C:\Users\joabj85\background
+2014-12-28 09:45:59,924 [1] DEBUG - Application Starting
+2014-12-28 09:45:59,955 [1] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-28 09:45:59,955 [1] DEBUG - Windows Form mode
+2014-12-28 09:45:59,987 [1] DEBUG - Using cached Bing XML
+2014-12-28 09:45:59,987 [1] INFO - Loaded xml: 1652
+2014-12-28 09:45:59,987 [1] INFO - NodeList count:1
+2014-12-28 09:45:59,987 [1] DEBUG - Using cached Bing image file: C:\Users\joabj85\background
+2014-12-28 09:46:06,252 [1] DEBUG - Application closing
+2014-12-28 09:46:08,533 [1] DEBUG - Application Starting
+2014-12-28 09:46:08,549 [1] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-28 09:46:08,549 [1] DEBUG - Windows Form mode
+2014-12-28 09:46:08,580 [1] DEBUG - Downloading new Bing XML
+2014-12-28 09:46:08,893 [1] INFO - Downloaded XML-file
+2014-12-28 09:46:08,893 [1] INFO - Loaded xml: 1652
+2014-12-28 09:46:08,893 [1] INFO - NodeList count:1
+2014-12-28 09:46:08,893 [1] INFO - Save image from http://www.bing.com/az/hprichbg/rb/BayerischerLynx_EN-US10608941251_1366x768.jpg to C:\Users\joabj85\background
+2014-12-28 09:46:12,581 [1] DEBUG - Setting wallpaper!
+2014-12-28 09:46:12,581 [1] DEBUG - Using cached Bing XML
+2014-12-28 09:46:12,581 [1] DEBUG - Msg: Eurasian lynx in the Bavarian Forest National Park, Germany (© Konrad Wothe/Minden Pictures)
+2014-12-28 09:46:12,581 [1] DEBUG - Using cached Bing image file: C:\Users\joabj85\background
+2014-12-28 09:46:12,581 [1] DEBUG - Setting wallpaper in registry
+2014-12-28 09:46:16,893 [1] DEBUG - Application closing
+2014-12-28 11:15:25,359 [10] DEBUG - Application Starting
+2014-12-28 11:15:25,390 [10] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-28 11:15:25,390 [10] DEBUG - Windows Form mode
+2014-12-28 11:15:25,406 [10] DEBUG - Using cached Bing XML
+2014-12-28 11:15:25,406 [10] INFO - Loaded xml: 1652
+2014-12-28 11:15:25,406 [10] INFO - NodeList count:1
+2014-12-28 11:15:25,406 [10] DEBUG - Using cached Bing image file: C:\Users\joabj85\background
+2014-12-28 11:15:29,390 [10] DEBUG - Application closing
+2014-12-28 11:19:01,484 [10] DEBUG - Application Starting
+2014-12-28 11:19:01,499 [10] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-28 11:19:01,499 [10] DEBUG - Windows Form mode
+2014-12-28 11:19:01,515 [10] DEBUG - Using cached Bing XML
+2014-12-28 11:19:01,531 [10] INFO - Loaded xml: 1652
+2014-12-28 11:19:01,531 [10] INFO - NodeList count:1
+2014-12-28 11:19:01,531 [10] DEBUG - Using cached Bing image file: C:\Users\joabj85\background
+2014-12-28 11:20:29,880 [8] DEBUG - Application Starting
+2014-12-28 11:20:29,896 [8] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-28 11:20:29,896 [8] DEBUG - Windows Form mode
+2014-12-28 11:20:29,911 [8] DEBUG - Downloading new Bing XML - attempt: 1
+2014-12-28 11:20:30,099 [8] DEBUG - Downloaded XML fiesize: 1655
+2014-12-28 11:20:30,099 [8] INFO - Downloaded XML-file
+2014-12-28 11:20:30,099 [8] INFO - Loaded xml: 1652
+2014-12-28 11:20:30,114 [8] INFO - NodeList count:1
+2014-12-28 11:20:30,130 [8] DEBUG - Using cached Bing image file: C:\Users\joabj85\background
+2014-12-28 11:22:49,446 [8] DEBUG - Application Starting
+2014-12-28 11:22:49,477 [8] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2014-12-28 11:22:49,477 [8] DEBUG - Windows Form mode
+2014-12-28 11:22:49,493 [8] DEBUG - Downloading new Bing XML - attempt: 1
+2014-12-28 11:22:49,665 [8] DEBUG - Downloaded XML fiesize: 1655
+2014-12-28 11:22:49,665 [8] INFO - Downloaded XML-file
+2014-12-28 11:22:49,665 [8] INFO - Loaded xml: 1652
+2014-12-28 11:22:49,665 [8] INFO - NodeList count:1
+2014-12-28 11:22:49,665 [8] DEBUG - Using cached Bing image file: C:\Users\joabj85\background
+2015-01-02 17:13:56,679 [10] DEBUG - Application Starting
+2015-01-02 17:13:56,695 [10] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2015-01-02 17:13:56,695 [10] DEBUG - Windows Form mode
+2015-01-02 17:13:56,711 [10] DEBUG - Downloading new Bing XML - attempt: 1
+2015-01-02 17:13:57,007 [10] DEBUG - Downloaded XML fiesize: 1863
+2015-01-02 17:13:57,007 [10] INFO - Downloaded XML-file
+2015-01-02 17:13:57,007 [10] INFO - Loaded xml: 1858
+2015-01-02 17:13:57,023 [10] INFO - NodeList count:1
+2015-01-02 17:13:57,023 [10] INFO - Save image from http://www.bing.com/az/hprichbg/rb/PiscataquaRiver_EN-US4164763935_1366x768.jpg to C:\Users\joabj85\background
+2015-01-02 17:14:01,336 [10] DEBUG - Setting wallpaper!
+2015-01-02 17:14:01,336 [10] DEBUG - Using cached Bing XML
+2015-01-02 17:14:01,336 [10] DEBUG - Msg: Piscataqua River, Portsmouth, New Hampshire (© Denis Tangney Jr./Getty Images)
+2015-01-02 17:14:01,336 [10] DEBUG - Using cached Bing image file: C:\Users\joabj85\background
+2015-01-02 17:14:01,336 [10] DEBUG - Setting wallpaper in registry
+2015-01-02 17:14:06,336 [10] DEBUG - Application closing
+2015-01-03 11:30:25,086 [9] DEBUG - Application Starting
+2015-01-03 11:30:25,101 [9] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2015-01-03 11:30:25,101 [9] DEBUG - Windows Form mode
+2015-01-03 11:30:25,133 [9] DEBUG - Downloading new Bing XML - attempt: 1
+2015-01-03 11:30:25,289 [9] DEBUG - Downloaded XML fiesize: 1747
+2015-01-03 11:30:25,289 [9] INFO - Downloaded XML-file
+2015-01-03 11:30:25,289 [9] INFO - Loaded xml: 1742
+2015-01-03 11:30:25,289 [9] INFO - NodeList count:1
+2015-01-03 11:30:25,289 [9] INFO - Save image from http://www.bing.com/az/hprichbg/rb/AKMendenhallGlacier_EN-US7350375136_1366x768.jpg to C:\Users\joabj85\background
+2015-01-03 11:30:35,510 [9] DEBUG - Setting wallpaper!
+2015-01-03 11:30:35,510 [9] DEBUG - Using cached Bing XML
+2015-01-03 11:30:35,510 [9] DEBUG - Msg: Mendenhall Glacier near Juneau, Alaska (© John Hyde/age fotostock)
+2015-01-03 11:30:35,510 [9] DEBUG - Using cached Bing image file: C:\Users\joabj85\background
+2015-01-03 11:30:35,510 [9] DEBUG - Setting wallpaper in registry
+2015-01-03 11:31:13,232 [9] DEBUG - Application closing
+2015-01-03 12:09:28,220 [9] DEBUG - Application Starting
+2015-01-03 12:09:28,236 [9] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2015-01-03 12:09:28,236 [9] DEBUG - Windows Form mode
+2015-01-03 12:09:28,267 [9] DEBUG - Using cached Bing XML
+2015-01-03 12:09:28,267 [9] INFO - Loaded xml: 1742
+2015-01-03 12:09:28,267 [9] INFO - NodeList count:1
+2015-01-03 12:09:28,267 [9] DEBUG - Using cached Bing image file: C:\Users\joabj85\background
+2015-01-03 12:10:31,564 [8] DEBUG - Application Starting
+2015-01-03 12:10:31,580 [8] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2015-01-03 12:10:31,580 [8] DEBUG - Windows Form mode
+2015-01-03 12:10:31,611 [8] DEBUG - Downloading new Bing XML - attempt: 1
+2015-01-03 12:10:31,799 [8] DEBUG - Downloaded XML fiesize: 1747
+2015-01-03 12:10:31,799 [8] INFO - Downloaded XML-file
+2015-01-03 12:10:31,814 [8] INFO - Loaded xml: 1742
+2015-01-03 12:10:31,814 [8] INFO - NodeList count:1
+2015-01-03 12:10:31,814 [8] DEBUG - Using cached Bing image file: C:\Users\joabj85\background
+2015-01-03 12:11:47,071 [9] DEBUG - Application Starting
+2015-01-03 12:11:47,087 [9] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2015-01-03 12:11:47,087 [9] DEBUG - Windows Form mode
+2015-01-03 12:11:47,118 [9] DEBUG - Using cached Bing XML
+2015-01-03 12:11:47,118 [9] INFO - Loaded xml: 1742
+2015-01-03 12:11:47,118 [9] INFO - NodeList count:1
+2015-01-03 12:11:47,118 [9] DEBUG - Using cached Bing image file: C:\Users\joabj85\background
+2015-01-03 12:16:48,465 [10] DEBUG - Application Starting
+2015-01-03 12:16:48,480 [10] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2015-01-03 12:16:48,480 [10] DEBUG - Windows Form mode
+2015-01-03 12:16:48,496 [10] DEBUG - Downloading new Bing XML - attempt: 1
+2015-01-03 12:16:48,668 [10] DEBUG - Downloaded XML fiesize: 1747
+2015-01-03 12:16:48,668 [10] INFO - Downloaded XML-file
+2015-01-03 12:16:48,668 [10] INFO - Loaded xml: 1742
+2015-01-03 12:16:48,684 [10] INFO - NodeList count:1
+2015-01-03 12:16:48,684 [10] DEBUG - Using cached Bing image file: C:\Users\joabj85\background
+2015-01-03 12:17:01,448 [10] DEBUG - Setting wallpaper in registry
+2015-01-03 12:17:35,730 [9] DEBUG - Application Starting
+2015-01-03 12:17:35,761 [9] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2015-01-03 12:17:35,761 [9] DEBUG - Windows Form mode
+2015-01-03 12:17:35,777 [9] DEBUG - Downloading new Bing XML - attempt: 1
+2015-01-03 12:17:35,980 [9] DEBUG - Downloaded XML fiesize: 1747
+2015-01-03 12:17:35,980 [9] INFO - Downloaded XML-file
+2015-01-03 12:17:35,996 [9] INFO - Loaded xml: 1742
+2015-01-03 12:17:35,996 [9] INFO - NodeList count:1
+2015-01-03 12:17:36,011 [9] DEBUG - Using cached Bing image file: C:\Users\joabj85\background
+2015-01-03 12:17:43,840 [9] DEBUG - Setting wallpaper in registry
+2015-01-03 12:24:54,288 [9] DEBUG - Application Starting
+2015-01-03 12:24:54,304 [9] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2015-01-03 12:24:54,304 [9] DEBUG - Windows Form mode
+2015-01-03 12:24:54,319 [9] DEBUG - Downloading new Bing XML - attempt: 1
+2015-01-03 12:24:54,507 [9] DEBUG - Downloaded XML fiesize: 1747
+2015-01-03 12:24:54,507 [9] INFO - Downloaded XML-file
+2015-01-03 12:24:54,522 [9] INFO - Loaded xml: 1742
+2015-01-03 12:24:54,522 [9] INFO - NodeList count:1
+2015-01-03 12:24:54,538 [9] DEBUG - Using cached Bing image file: C:\Users\joabj85\background
+2015-01-03 12:25:04,007 [9] DEBUG - Setting wallpaper in registry
+2015-01-03 12:25:14,309 [9] DEBUG - Downloading new Bing XML - attempt: 1
+2015-01-03 12:25:14,395 [9] DEBUG - Downloaded XML fiesize: 1747
+2015-01-03 12:25:14,395 [9] INFO - Downloaded XML-file
+2015-01-03 12:25:14,395 [9] INFO - Save image from http://www.bing.com/az/hprichbg/rb/AKMendenhallGlacier_EN-US7350375136_1366x768.jpg to C:\Users\joabj85\background
+2015-01-03 12:25:25,187 [9] DEBUG - Application closing
+2015-01-03 12:27:16,194 [8] DEBUG - Application Starting
+2015-01-03 12:27:16,209 [8] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2015-01-03 12:27:16,209 [8] DEBUG - Windows Form mode
+2015-01-03 12:27:16,241 [8] DEBUG - Using cached Bing XML
+2015-01-03 12:27:16,241 [8] INFO - Loaded xml: 1742
+2015-01-03 12:27:16,241 [8] INFO - NodeList count:1
+2015-01-03 12:27:16,241 [8] DEBUG - Using cached Bing image file: C:\Users\joabj85\background
+2015-01-03 12:27:22,638 [8] DEBUG - Setting wallpaper in registry
+2015-01-03 12:27:34,932 [8] DEBUG - Downloading new Bing XML - attempt: 1
+2015-01-03 12:27:35,135 [8] DEBUG - Downloaded XML fiesize: 1747
+2015-01-03 12:27:35,135 [8] INFO - Downloaded XML-file
+2015-01-03 12:27:54,256 [8] DEBUG - Using cached Bing XML
+2015-01-03 12:27:57,537 [8] INFO - Loaded xml: 1742
+2015-01-03 12:27:57,537 [8] INFO - NodeList count:1
+2015-01-03 12:28:16,709 [8] INFO - Save image from http://www.bing.com/az/hprichbg/rb/AKMendenhallGlacier_EN-US7350375136_1366x768.jpg to C:\Users\joabj85\background
+2015-01-03 12:29:38,082 [8] DEBUG - Application closing
+2015-01-03 12:29:44,496 [9] DEBUG - Application Starting
+2015-01-03 12:29:44,511 [9] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2015-01-03 12:29:44,511 [9] DEBUG - Windows Form mode
+2015-01-03 12:29:44,527 [9] DEBUG - Using cached Bing XML
+2015-01-03 12:29:44,527 [9] INFO - Loaded xml: 1742
+2015-01-03 12:29:44,527 [9] INFO - NodeList count:1
+2015-01-03 12:29:44,527 [9] DEBUG - Using cached Bing image file: C:\Users\joabj85\background
+2015-01-03 12:29:50,244 [9] DEBUG - Setting wallpaper in registry
+2015-01-03 12:29:54,763 [9] DEBUG - Downloading new Bing XML - attempt: 1
+2015-01-03 12:29:55,091 [9] DEBUG - Downloaded XML fiesize: 1747
+2015-01-03 12:29:55,091 [9] INFO - Downloaded XML-file
+2015-01-03 12:29:55,106 [9] DEBUG - Using cached Bing XML
+2015-01-03 12:29:55,106 [9] INFO - Loaded xml: 1742
+2015-01-03 12:29:55,106 [9] INFO - NodeList count:1
+2015-01-03 12:29:55,106 [9] INFO - Save image from http://www.bing.com/az/hprichbg/rb/AKMendenhallGlacier_EN-US7350375136_1366x768.jpg to C:\Users\joabj85\background
+2015-01-03 12:29:55,513 [9] DEBUG - Setting wallpaper!
+2015-01-03 12:29:55,513 [9] DEBUG - Using cached Bing XML
+2015-01-03 12:29:55,513 [9] DEBUG - Msg: Mendenhall Glacier near Juneau, Alaska (© John Hyde/age fotostock)
+2015-01-03 12:29:55,513 [9] DEBUG - Using cached Bing image file: C:\Users\joabj85\background
+2015-01-03 12:29:55,513 [9] DEBUG - Setting wallpaper in registry
+2015-01-03 12:30:05,075 [9] DEBUG - Application closing
+2015-01-03 12:30:18,607 [9] DEBUG - Application Starting
+2015-01-03 12:30:18,638 [9] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2015-01-03 12:30:18,638 [9] DEBUG - Windows Form mode
+2015-01-03 12:30:18,654 [9] DEBUG - Using cached Bing XML
+2015-01-03 12:30:18,654 [9] INFO - Loaded xml: 1742
+2015-01-03 12:30:18,654 [9] INFO - NodeList count:1
+2015-01-03 12:30:18,654 [9] DEBUG - Using cached Bing image file: C:\Users\joabj85\background
+2015-01-03 12:30:21,826 [9] DEBUG - Setting wallpaper in registry
+2015-01-03 12:30:26,138 [9] DEBUG - Downloading new Bing XML - attempt: 1
+2015-01-03 12:30:26,388 [9] DEBUG - Downloaded XML fiesize: 1747
+2015-01-03 12:30:26,388 [9] INFO - Downloaded XML-file
+2015-01-03 12:30:26,388 [9] DEBUG - Using cached Bing XML
+2015-01-03 12:30:26,388 [9] INFO - Loaded xml: 1742
+2015-01-03 12:30:26,388 [9] INFO - NodeList count:1
+2015-01-03 12:30:26,388 [9] INFO - Save image from http://www.bing.com/az/hprichbg/rb/AKMendenhallGlacier_EN-US7350375136_1366x768.jpg to C:\Users\joabj85\background
+2015-01-03 12:30:26,857 [9] DEBUG - Setting wallpaper!
+2015-01-03 12:30:26,857 [9] DEBUG - Using cached Bing XML
+2015-01-03 12:30:26,857 [9] DEBUG - Msg: Mendenhall Glacier near Juneau, Alaska (© John Hyde/age fotostock)
+2015-01-03 12:30:26,857 [9] DEBUG - Using cached Bing image file: C:\Users\joabj85\background
+2015-01-03 12:30:26,857 [9] DEBUG - Setting wallpaper in registry
+2015-01-03 12:30:42,498 [9] DEBUG - Application closing
+2015-01-03 12:36:01,461 [10] DEBUG - Application Starting
+2015-01-03 12:36:01,477 [10] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2015-01-03 12:36:01,477 [10] DEBUG - Windows Form mode
+2015-01-03 12:36:01,508 [10] DEBUG - Using cached Bing XML
+2015-01-03 12:36:01,508 [10] INFO - Loaded xml: 1742
+2015-01-03 12:36:01,508 [10] INFO - NodeList count:1
+2015-01-03 12:36:01,508 [10] DEBUG - Using cached Bing image file: C:\Users\joabj85\background
+2015-01-03 12:36:28,833 [10] DEBUG - Application closing
+2015-01-03 13:14:03,962 [10] DEBUG - Application Starting
+2015-01-03 13:14:03,994 [10] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2015-01-03 13:14:03,994 [10] DEBUG - Windows Form mode
+2015-01-03 13:14:04,025 [10] DEBUG - Using cached Bing XML
+2015-01-03 13:14:04,025 [10] INFO - Loaded xml: 1742
+2015-01-03 13:14:04,025 [10] INFO - NodeList count:1
+2015-01-03 13:14:04,025 [10] DEBUG - Using cached Bing image file: C:\Users\joabj85\background
+2015-01-03 13:14:09,962 [10] DEBUG - Application closing
+2015-01-03 13:14:18,297 [9] DEBUG - Application Starting
+2015-01-03 13:14:18,843 [9] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming
+2015-01-03 13:14:42,676 [9] DEBUG - Windows Form mode
+2015-01-03 13:14:42,717 [9] DEBUG - Using cached Bing XML
+2015-01-03 13:14:42,717 [9] INFO - Loaded xml: 1742
+2015-01-03 13:14:42,717 [9] INFO - NodeList count:1
+2015-01-03 13:14:42,717 [9] DEBUG - Using cached Bing image file: C:\Users\joabj85\background
+2015-01-03 13:14:45,982 [9] DEBUG - Application closing
+2015-01-03 15:14:06,152 [10] DEBUG - Application Starting
+2015-01-03 15:14:06,715 [10] DEBUG - Appdir:C:\Users\joabj85\AppData\Roamingj-b-n/DesktopWallpaper/
+2015-01-03 15:20:37,682 [9] DEBUG - Application Starting
+2015-01-03 15:20:38,089 [9] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming\j-b-n\DesktopWallpaper\
+2015-01-03 15:21:27,941 [9] DEBUG - Windows Form mode
+2015-01-03 15:21:28,034 [9] DEBUG - Downloading new Bing XML - attempt: 1
+2015-01-03 15:21:28,284 [9] DEBUG - Downloaded XML fiesize: 1747
+2015-01-03 15:21:28,284 [9] INFO - Downloaded XML-file
+2015-01-03 15:21:28,300 [9] INFO - Loaded xml: 1742
+2015-01-03 15:21:28,300 [9] INFO - NodeList count:1
+2015-01-03 15:21:28,300 [9] INFO - Save image from http://www.bing.com/az/hprichbg/rb/AKMendenhallGlacier_EN-US7350375136_1366x768.jpg to C:\Users\joabj85\background
+2015-01-03 15:21:31,930 [9] DEBUG - Application closing
+2015-01-03 15:21:53,883 [9] DEBUG - Application Starting
+2015-01-03 15:21:54,295 [9] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming\j-b-n\DesktopWallpaper\
+2015-01-03 15:22:16,576 [9] DEBUG - Windows Form mode
+2015-01-03 15:22:16,609 [9] DEBUG - Using cached Bing XML
+2015-01-03 15:22:16,625 [9] INFO - Loaded xml: 1742
+2015-01-03 15:22:16,625 [9] INFO - NodeList count:1
+2015-01-03 15:22:16,625 [9] DEBUG - Using cached Bing image file: C:\Users\joabj85\background
+2015-01-03 15:22:20,047 [9] DEBUG - Application closing
+2015-01-03 15:39:45,620 [9] DEBUG - Application Starting
+2015-01-03 15:39:46,245 [9] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming\j-b-n\DesktopWallpaper\
+2015-01-03 15:40:21,929 [9] DEBUG - Windows Form mode
+2015-01-03 15:40:24,179 [9] DEBUG - Downloading new Bing XML - attempt: 1
+2015-01-03 15:40:24,382 [9] DEBUG - Downloaded XML fiesize: 1747
+2015-01-03 15:40:24,382 [9] INFO - Downloaded XML-file
+2015-01-03 15:40:24,397 [9] INFO - Loaded xml: 1742
+2015-01-03 15:40:24,397 [9] INFO - NodeList count:1
+2015-01-03 15:40:24,397 [9] INFO - Save image from http://www.bing.com/az/hprichbg/rb/AKMendenhallGlacier_EN-US7350375136_1366x768.jpg to C:\Users\joabj85\AppData\Roaming\j-b-n\DesktopWallpaper\backgroundImage
+2015-01-03 15:50:29,815 [9] DEBUG - Application Starting
+2015-01-03 15:50:30,346 [9] DEBUG - Appdir:C:\Users\joabj85\AppData\Roaming\j-b-n\DesktopWallpaper\
+2015-01-03 15:50:40,530 [9] DEBUG - Windows Form mode
+2015-01-03 15:50:40,562 [9] DEBUG - Using cached Bing XML
+2015-01-03 15:50:40,577 [9] INFO - Loaded xml: 1742
+2015-01-03 15:50:40,577 [9] INFO - NodeList count:1
+2015-01-03 15:50:40,577 [9] DEBUG - Using cached Bing image file: C:\Users\joabj85\AppData\Roaming\j-b-n\DesktopWallpaper\backgroundImage
+2015-01-03 15:50:43,577 [9] DEBUG - Application closing

@@ -12,6 +12,8 @@ using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
 using CommandLine;
 using CommandLine.Text;
+using Newtonsoft.Json;
+using log4net.Appender;
 
 [assembly: log4net.Config.XmlConfigurator(Watch = true)]
 
@@ -36,13 +38,14 @@ namespace DesktopWallpapers
         private static readonly ILog Log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         //private static readonly ILog log = LogManager.GetLogger(typeof (Program)) ;
 
-        private static string PathToImages = "C:\\Users\\joabj85\\";
-        private static string LocalXmlFilename = string.Format(@"{0}{1}", PathToImages, "BingXML.xml");
-        public static string LocalImageFilename = string.Format(@"{0}{1}", PathToImages, "background");
-
+       
         public static List<BingImage> BingImages = new List<BingImage>();
 
-        public static string AppDir = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+        public static string AppDir = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+"\\j-b-n\\DesktopWallpaper\\";
+        public static string SettingsFile = AppDir + "settings.jsn";
+
+        public static MySettings settings = MySettings.Load(SettingsFile);
+
 
         ///CommandLine stuff
         [DllImport( "kernel32.dll" )]
@@ -67,10 +70,7 @@ namespace DesktopWallpapers
                 return HelpText.AutoBuild(this,
                   (HelpText current) => HelpText.DefaultParsingErrorsHandler(this, current));
             }
-        }
-
-        
-      
+        }      
 #endregion
 
 
@@ -83,11 +83,22 @@ namespace DesktopWallpapers
             //Configure log4net!
             log4net.Config.XmlConfigurator.Configure();
 
-            Properties.Settings.Default.Setting = "Foo";
-            Properties.Settings.Default.Save();
+            var fileAppender = LogManager.GetLoggerRepository()
+                             .GetAppenders()
+                             .OfType<FileAppender>()
+                             .FirstOrDefault(fa => fa.Name == "RollingFileAppender");
+            
+            if (fileAppender != null)
+            {
+                fileAppender.File = Path.Combine(AppDir, "DesktopWallpapers.log");
+                fileAppender.ActivateOptions();
+            }
+
             Log.Debug("Application Starting");
             Log.Debug("Appdir:" + AppDir);
-
+                        
+            settings.Save(SettingsFile);
+               
             if (args == null || args.Length == 0)
             {
                 Log.Debug("Windows Form mode");
@@ -131,7 +142,7 @@ namespace DesktopWallpapers
 
         public static void LoadXML()
         {
-            string value = File.ReadAllText(LocalXmlFilename);
+            string value = File.ReadAllText(settings.LocalXmlFilename);
             string url = "";
        
             Log.Info("Loaded xml: " + value.Length);
@@ -172,49 +183,73 @@ namespace DesktopWallpapers
 
         public static void ClearCache()
         {
-            string LocalImage = LocalImageFilename;
-            string newLocalImage = LocalImageFilename + ".png";
+            string LocalImage = settings.LocalImageFilename;
+            string newLocalImage = settings.LocalImageFilename + ".png";
 
-            if (File.Exists(LocalXmlFilename))
-                File.Delete(LocalXmlFilename);
+            ClearWallpaper();
+
+            if (File.Exists(settings.LocalXmlFilename))
+                File.Delete(settings.LocalXmlFilename);
 
             if (File.Exists(LocalImage))
                 File.Delete(LocalImage);
 
             if (File.Exists(newLocalImage))
                 File.Delete(newLocalImage);
-
         }
-       
+
 
         public static void DownloadBingXML()
         {
-            if (File.Exists(LocalXmlFilename))
+            if (File.Exists(settings.LocalXmlFilename))
             {
-                DateTime fileModifiedDate = File.GetLastWriteTime(LocalXmlFilename);
+                DateTime fileModifiedDate = File.GetLastWriteTime(settings.LocalXmlFilename);
                 if (fileModifiedDate.AddMinutes(CacheTime) > DateTime.Now)
                 {
                     Log.Debug("Using cached Bing XML");
                     return;
                 }
             }
-            Log.Debug("Downloading new Bing XML");
-            WebClient client = new WebClient();
-            client.Headers["User-Agent"] =
-                    "Mozilla/4.0 (Compatible; Windows NT 5.1; MSIE 6.0) " +
-                    "(compatible; MSIE 6.0; Windows NT 5.1; " +
-                    ".NET CLR 1.1.4322; .NET CLR 2.0.50727)";
+            int attempt = 1;
+            bool success = false;
 
-            // Download XML from Bing.
-            try
+            while (!success && attempt<11)
             {
-                client.DownloadFile("http://www.bing.com/HPImageArchive.aspx?format=xml&idx=0&n=1&mkt=en-US", LocalXmlFilename);
+                Log.Debug("Downloading new Bing XML - attempt: " + attempt);
+                WebClient client = new WebClient();
+                client.Headers["User-Agent"] =
+                        "Mozilla/4.0 (Compatible; Windows NT 5.1; MSIE 6.0) " +
+                        "(compatible; MSIE 6.0; Windows NT 5.1; " +
+                        ".NET CLR 1.1.4322; .NET CLR 2.0.50727)";
+
+                // Download XML from Bing.
+                try
+                {
+                    client.DownloadFile("http://www.bing.com/HPImageArchive.aspx?format=xml&idx=0&n=1&mkt=en-US", settings.LocalXmlFilename);
+                }
+                catch (WebException e)
+                {
+                    Log.Error("Failed to download Bing XML: " + e.Message);
+                }
+
+                if (File.Exists(settings.LocalXmlFilename))
+                {
+                    FileInfo f = new FileInfo(settings.LocalXmlFilename);
+
+                    if (f.Length > 1)
+                    {
+                        success = true;
+                        Log.Debug("Downloaded XML fiesize: " + f.Length.ToString());
+                        Log.Info("Downloaded XML-file");
+                    }
+                    else
+                    {
+                        success = false;
+                        Log.Debug("Filesize <= 1");
+                    }
+                }
+                attempt = attempt + 1;                
             }
-            catch (WebException e)
-            {
-                Log.Error("Failed to download Bing XML: "+e.Message);             
-            }
-            Log.Info("Downloaded XML-file");
         }
 
 /// <summary>
@@ -224,8 +259,8 @@ namespace DesktopWallpapers
 /// 
         public static void DownloadImage(string url)
         {
-            string LocalImage = LocalImageFilename;
-            string newLocalImage = LocalImageFilename + ".png";
+            string LocalImage = settings.LocalImageFilename;
+            string newLocalImage = settings.LocalImageFilename + ".png";
 
             if (File.Exists(LocalImage))
             {
@@ -262,9 +297,9 @@ namespace DesktopWallpapers
 
         public static string getLocalImageDate()
         {
-            if (File.Exists(LocalImageFilename))
+            if (File.Exists(settings.LocalImageFilename))
             {
-                DateTime dt = File.GetLastWriteTime(LocalImageFilename);
+                DateTime dt = File.GetLastWriteTime(settings.LocalImageFilename);
                 return dt.ToShortDateString() + " "+ dt.ToShortTimeString();
             }
             return "No file found!";
@@ -304,7 +339,8 @@ namespace DesktopWallpapers
             }
             Log.Debug("Msg: "+msg);
             DownloadImage("http://www.bing.com" + url);
-            SetWallpaper(LocalImageFilename + ".png");
+
+            SetWallpaper(settings.LocalImageFilename + ".png");
         }
 
 ///<summary>
@@ -343,6 +379,26 @@ namespace DesktopWallpapers
         }
 
 
+        ///<summary>
+        /// Function to clear the wallpaper
+        /// </summary>        
+        static void ClearWallpaper()
+        {
+            const string userRoot = "HKEY_CURRENT_USER";
+            const string subkey = @"Control Panel\Desktop\";
+            const string keyName = userRoot + "\\" + subkey;
+
+            Log.Debug("Clear wallpaper setting in registry");
+
+            Microsoft.Win32.Registry.SetValue(keyName, "Wallpaper", "");
+
+            SystemParametersInfo(SPI_SETDESKWALLPAPER,
+            0,
+            "",
+            SPIF_UPDATEINIFILE | SPIF_SENDWININICHANGE);
+        }
+
+
 #region BingImage
         public class BingImage
         {
@@ -354,5 +410,42 @@ namespace DesktopWallpapers
         }
 #endregion
 
+#region Settings
+        public class MySettings : AppSettings<MySettings>
+        {
+            public static string PathToImages = AppDir;
+            public string LocalXmlFilename = string.Format(@"{0}{1}", PathToImages, "BingXML.xml");
+            public string LocalImageFilename = string.Format(@"{0}{1}", PathToImages, "backgroundImage");
+            public string MediaPortalSplashscreenFileLocation = "";
+        }
+
+        public class AppSettings<T> where T : new()
+        {
+            private const string DEFAULT_FILENAME = "settings.jsn";
+           
+            public void Save(string fileName = DEFAULT_FILENAME)
+            {
+                string path = Path.GetDirectoryName(fileName);
+                Directory.CreateDirectory(path);             
+                File.WriteAllText(fileName, JsonConvert.SerializeObject(this));
+            }
+
+            public static void Save(T pSettings, string fileName = DEFAULT_FILENAME)
+            {
+                File.WriteAllText(fileName, JsonConvert.SerializeObject(pSettings));
+            }
+
+            public static T Load(string fileName = DEFAULT_FILENAME)
+            {                
+                T t = new T();
+                if (File.Exists(fileName))
+                    t = JsonConvert.DeserializeObject<T>(File.ReadAllText(fileName));                                
+                return t;
+            }
+
+        }
+
+
+#endregion
     }
 }

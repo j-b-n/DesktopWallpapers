@@ -127,6 +127,7 @@ namespace DesktopWallpapers
                     if (options.SetMediaportal)
                     {
                         if (options.Verbose) Log.Debug("Use wallpaper in Mediaportal!");
+                        SaveMPFiles();
                     }
                 } else
                 {

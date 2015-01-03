@@ -31,7 +31,7 @@ namespace DesktopWallpapers
         private static readonly int SPIF_UPDATEINIFILE = 0x01;
         private static readonly int SPIF_SENDWININICHANGE = 0x02;
 
-        private static readonly int CacheTime = 120;
+        private static readonly int CacheTime = 360;
 
         private static readonly ILog Log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         //private static readonly ILog log = LogManager.GetLogger(typeof (Program)) ;
@@ -117,10 +117,10 @@ namespace DesktopWallpapers
                 {
                     // consume values here
                     if (options.Verbose) Log.Debug("Verbose operations!");
-                    if (options.Verbose) Console.WriteLine("Verbose!");
+                    //if (options.Verbose) Console.WriteLine("Verbose!");
                     if (options.SetWallpaper)
                     {                        
-                        if (options.Verbose) Console.WriteLine("Setting wallpaper!");
+                        if (options.Verbose) Log.Debug("Setting wallpaper!");
                         SetCurrentImageAsWallpaper();
                     }
 
@@ -314,6 +314,7 @@ namespace DesktopWallpapers
 
         public static void SaveMPFiles()
         {
+            Log.Info("Save MPFiles!");
             Image img = FromFile(DesktopWallpapers.Program.settings.LocalImageFilename);              
             foreach (string fileName in settings.MPFiles)
             {

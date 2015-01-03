@@ -146,5 +146,12 @@ namespace DesktopWallpapers
 
             }
         }
+
+        private void setMPToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DesktopWallpapers.Program.SetCurrentImageAsWallpaper();            
+
+            
+        }
     }
 }

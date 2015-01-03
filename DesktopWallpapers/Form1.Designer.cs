@@ -32,13 +32,14 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.forceUpdateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.forceUpdateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.setMPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -66,6 +67,7 @@
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.setToolStripMenuItem,
+            this.setMPToolStripMenuItem,
             this.forceUpdateToolStripMenuItem,
             this.optionsToolStripMenuItem,
             this.exitToolStripMenuItem});
@@ -80,6 +82,13 @@
             this.setToolStripMenuItem.Size = new System.Drawing.Size(198, 30);
             this.setToolStripMenuItem.Text = "Set";
             this.setToolStripMenuItem.Click += new System.EventHandler(this.setToolStripMenuItem_Click);
+            // 
+            // forceUpdateToolStripMenuItem
+            // 
+            this.forceUpdateToolStripMenuItem.Name = "forceUpdateToolStripMenuItem";
+            this.forceUpdateToolStripMenuItem.Size = new System.Drawing.Size(198, 30);
+            this.forceUpdateToolStripMenuItem.Text = "Force update";
+            this.forceUpdateToolStripMenuItem.Click += new System.EventHandler(this.forceUpdateToolStripMenuItem_Click);
             // 
             // optionsToolStripMenuItem
             // 
@@ -131,12 +140,12 @@
             this.toolStripStatusLabel3.Text = "Last update:";
             this.toolStripStatusLabel3.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // forceUpdateToolStripMenuItem
+            // setMPToolStripMenuItem
             // 
-            this.forceUpdateToolStripMenuItem.Name = "forceUpdateToolStripMenuItem";
-            this.forceUpdateToolStripMenuItem.Size = new System.Drawing.Size(198, 30);
-            this.forceUpdateToolStripMenuItem.Text = "Force update";
-            this.forceUpdateToolStripMenuItem.Click += new System.EventHandler(this.forceUpdateToolStripMenuItem_Click);
+            this.setMPToolStripMenuItem.Name = "setMPToolStripMenuItem";
+            this.setMPToolStripMenuItem.Size = new System.Drawing.Size(198, 30);
+            this.setMPToolStripMenuItem.Text = "Set+MP";
+            this.setMPToolStripMenuItem.Click += new System.EventHandler(this.setMPToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -172,6 +181,7 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
         private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem forceUpdateToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem setMPToolStripMenuItem;
     }
 }
 

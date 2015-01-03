@@ -33,7 +33,6 @@ namespace DesktopWallpapers
 
         private static readonly int CacheTime = 120;
 
-
         private static readonly ILog Log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         //private static readonly ILog log = LogManager.GetLogger(typeof (Program)) ;
 
@@ -302,6 +301,23 @@ namespace DesktopWallpapers
                 return dt.ToShortDateString() + " "+ dt.ToShortTimeString();
             }
             return "No file found!";
+        }
+
+        public static Image FromFile(string path)
+        {
+            var bytes = File.ReadAllBytes(path);
+            var ms = new MemoryStream(bytes);
+            var img = Image.FromStream(ms);
+            return img;
+        }
+
+        public static void SaveMPFiles()
+        {
+            Image img = FromFile(DesktopWallpapers.Program.settings.LocalImageFilename);              
+            foreach (string fileName in settings.MPFiles)
+            {                                  
+                img.Save(fileName, ImageFormat.Png);
+            }
         }
 
 /// <summary>

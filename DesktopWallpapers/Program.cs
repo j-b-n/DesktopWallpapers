@@ -17,7 +17,6 @@ using log4net.Appender;
 
 [assembly: log4net.Config.XmlConfigurator(Watch = true)]
 
-
 namespace DesktopWallpapers
 {
     static class Program

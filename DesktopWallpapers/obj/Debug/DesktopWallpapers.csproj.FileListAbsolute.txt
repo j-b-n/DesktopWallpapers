@@ -12,6 +12,9 @@ C:\Users\joabj85\Source\Repos\DesktopWallpapers\DesktopWallpapers\obj\Debug\Desk
 C:\Users\joabj85\Source\Repos\DesktopWallpapers\DesktopWallpapers\obj\Debug\DesktopWallpapers.exe
 C:\Users\joabj85\Source\Repos\DesktopWallpapers\DesktopWallpapers\obj\Debug\DesktopWallpapers.pdb
 C:\Users\joabj85\Source\Repos\DesktopWallpapers\DesktopWallpapers\obj\Debug\DesktopWallpapers.OptionsForm.resources
-C:\Users\joabj85\Source\Repos\DesktopWallpapers\DesktopWallpapers\obj\Debug\DesktopWallpapers.csprojResolveAssemblyReference.cache
 C:\Users\joabj85\Source\Repos\DesktopWallpapers\DesktopWallpapers\bin\Debug\Newtonsoft.Json.dll
 C:\Users\joabj85\Source\Repos\DesktopWallpapers\DesktopWallpapers\bin\Debug\Newtonsoft.Json.xml
+C:\Users\joabj85\Source\Repos\DesktopWallpapers\DesktopWallpapers\bin\Debug\DesktopWallpapers.exe.manifest
+C:\Users\joabj85\Source\Repos\DesktopWallpapers\DesktopWallpapers\bin\Debug\DesktopWallpapers.application
+C:\Users\joabj85\Source\Repos\DesktopWallpapers\DesktopWallpapers\obj\Debug\DesktopWallpapers.exe.manifest
+C:\Users\joabj85\Source\Repos\DesktopWallpapers\DesktopWallpapers\obj\Debug\DesktopWallpapers.application

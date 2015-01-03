@@ -54,14 +54,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DesktopWallpapers.exe" size="27040">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DesktopWallpapers.exe" size="27552">
       <assemblyIdentity name="DesktopWallpapers" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>lM+SZfQvxKW+OyFSl3d4tixET9dbbWiDZEMOZvQo29c=</dsig:DigestValue>
+        <dsig:DigestValue>hkq0fCT9Ipq6GV6hLfEtIhc2y8FJrb1mJzyomqC3/SQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

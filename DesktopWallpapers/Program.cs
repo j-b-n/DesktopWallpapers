@@ -83,7 +83,7 @@ namespace DesktopWallpapers
             //Configure log4net!
             log4net.Config.XmlConfigurator.Configure();
 
-            var fileAppender = LogManager.GetLoggerRepository()
+            var fileAppender = LogManager.GetRepository()
                              .GetAppenders()
                              .OfType<FileAppender>()
                              .FirstOrDefault(fa => fa.Name == "RollingFileAppender");
@@ -415,8 +415,8 @@ namespace DesktopWallpapers
         {
             public static string PathToImages = AppDir;
             public string LocalXmlFilename = string.Format(@"{0}{1}", PathToImages, "BingXML.xml");
-            public string LocalImageFilename = string.Format(@"{0}{1}", PathToImages, "backgroundImage");
-            public string MediaPortalSplashscreenFileLocation = "";
+            public string LocalImageFilename = string.Format(@"{0}{1}", PathToImages, "backgroundImage");            
+            public List<string> MPFiles = new List<string>(); 
         }
 
         public class AppSettings<T> where T : new()

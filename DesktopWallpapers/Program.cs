@@ -33,8 +33,7 @@ namespace DesktopWallpapers
 
         private static readonly int CacheTime = 360;
 
-        private static readonly ILog Log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-        //private static readonly ILog log = LogManager.GetLogger(typeof (Program)) ;
+        public static readonly ILog Log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);        
 
        
         public static List<BingImage> BingImages = new List<BingImage>();
@@ -43,6 +42,8 @@ namespace DesktopWallpapers
         public static string SettingsFile = AppDir + "settings.jsn";
 
         public static MySettings settings = MySettings.Load(SettingsFile);
+
+        public static bool BingXMLUpdate = false;
 
 
         ///CommandLine stuff
@@ -58,6 +59,9 @@ namespace DesktopWallpapers
 
             [Option('m', "mediaportal", DefaultValue = false, HelpText = "Set wallpaper in MediaPortal!")]
             public bool SetMediaportal { get; set; }
+
+            [Option('f', "force", DefaultValue = false, HelpText = "Force!")]
+            public bool Force { get; set; }
 
             [Option('v', "verbose", DefaultValue = false, HelpText = "Prints all messages to standard output.")]
             public bool Verbose { get; set; }
@@ -94,9 +98,7 @@ namespace DesktopWallpapers
 
             Log.Debug("Application Starting");
             Log.Debug("Appdir:" + AppDir);
-                        
-            settings.Save(SettingsFile);
-               
+                                                   
             if (args == null || args.Length == 0)
             {
                 Log.Debug("Windows Form mode");
@@ -117,6 +119,15 @@ namespace DesktopWallpapers
                 {
                     // consume values here
                     if (options.Verbose) Log.Debug("Verbose operations!");
+
+                    if (options.Force)
+                    {
+                        refreshBing(true);
+                    } else
+                    {
+                        refreshBing(false);
+                    }
+
                     //if (options.Verbose) Console.WriteLine("Verbose!");
                     if (options.SetWallpaper)
                     {                        
@@ -141,51 +152,92 @@ namespace DesktopWallpapers
 
         public static void LoadXML()
         {
-            string value = File.ReadAllText(settings.LocalXmlFilename);
-            string url = "";
-       
-            Log.Info("Loaded xml: " + value.Length);
-            XmlDocument doc = new XmlDocument();
-            try
-            {                
-                BingImages.Clear();
-                doc.LoadXml(value);
-                System.Xml.XmlNodeList NodeList = doc.GetElementsByTagName("image");
-                Log.Info("NodeList count:" + NodeList.Count);
-                foreach (XmlNode node in NodeList)
-                {
-                    BingImage BI = new BingImage();
-                    BI.url = node["url"].InnerText;
-                    BI.copyright = System.Text.RegularExpressions.Regex.Unescape(node["copyright"].InnerText);
-                    BI.startdate = node["startdate"].InnerText;
-                    BI.fullstartdate = node["fullstartdate"].InnerText;
-                    BI.enddate = node["enddate"].InnerText;
+            BingXMLUpdate = false;
+            BingImages.Clear();
 
-                    BingImages.Add(BI);
+            if (File.Exists(settings.LocalXmlFilename))
+            {
+                string value = File.ReadAllText(settings.LocalXmlFilename);                
+                XmlDocument doc = new XmlDocument();
+                try
+                {          
+                    doc.LoadXml(value);
+                    System.Xml.XmlNodeList NodeList = doc.GetElementsByTagName("image");                    
+                    foreach (XmlNode node in NodeList)
+                    {
+                        BingImage BI = new BingImage();
+                        BI.url = node["url"].InnerText;
+                        BI.copyright = System.Text.RegularExpressions.Regex.Unescape(node["copyright"].InnerText);
+                        BI.startdate = node["startdate"].InnerText;
+                        BI.fullstartdate = node["fullstartdate"].InnerText;
+                        BI.enddate = node["enddate"].InnerText;
+                        BingImages.Add(BI);
+
+                        DateTime dt = DateTime.Now;
+                        try
+                        {
+                            dt = DateTime.ParseExact(BI.fullstartdate, "yyyyMMddHHmm",
+                                System.Globalization.CultureInfo.InvariantCulture);
+                        }
+                        catch (Exception e)
+                        {
+                            Log.Error("Error: " + e.Message);
+                        }
+
+                        if (settings.BingFullstarttime != dt)
+                        {
+                            settings.BingFullstarttime = dt;                      
+                            BingXMLUpdate = true;
+                        }
+
+                        dt = DateTime.Now;
+                        try
+                        {
+                            dt = DateTime.ParseExact(BI.enddate, "yyyyMMdd",
+                                System.Globalization.CultureInfo.InvariantCulture);
+                        }
+                        catch (Exception e)
+                        {
+                            Log.Error("Error: " + e.Message);
+                        }
+
+                        if (settings.BingEnddate != dt)
+                        {
+                            settings.BingEnddate = dt;
+                            BingXMLUpdate = true;
+                        }
+
+                        if(dt < DateTime.Now)
+                        {
+                            Log.Info("Reload XML-file due to passed enddate!");
+                            BingXMLUpdate = true;
+                        }
+
+                        if (settings.BingURL != BI.url)
+                        {
+                            settings.BingURL = BI.url;                            
+                            BingXMLUpdate = true;
+                        }
+                    }
+                }
+                catch (XmlException e)
+                {
+                    Log.Error("Can't download or parse Bing XML-file: " + e.Message);
+                    BingXMLUpdate = true;
+                    return;
                 }
             }
-            catch (XmlException e)
+            else
             {
-                Log.Error("Can't download or parse Bing XML-file: "+e.Message);
-                return;
+                BingXMLUpdate = true;
             }
-
-            foreach (BingImage BI in BingImages)
-            {
-                if (BI.url != null)
-                {
-                    url = BI.url;
-                }                
-            }
-
         }
 
         public static void ClearCache()
         {
+            BingXMLUpdate = true;
             string LocalImage = settings.LocalImageFilename;
-            string newLocalImage = settings.LocalImageFilename + ".png";
-
-            ClearWallpaper();
+            string newLocalImage = settings.LocalImageFilename + ".png";            
 
             if (File.Exists(settings.LocalXmlFilename))
                 File.Delete(settings.LocalXmlFilename);
@@ -198,17 +250,8 @@ namespace DesktopWallpapers
         }
 
 
-        public static void DownloadBingXML()
-        {
-            if (File.Exists(settings.LocalXmlFilename))
-            {
-                DateTime fileModifiedDate = File.GetLastWriteTime(settings.LocalXmlFilename);
-                if (fileModifiedDate.AddMinutes(CacheTime) > DateTime.Now)
-                {
-                    Log.Debug("Using cached Bing XML");
-                    return;
-                }
-            }
+        public static bool DownloadBingXML()
+        {            
             int attempt = 1;
             bool success = false;
 
@@ -240,6 +283,7 @@ namespace DesktopWallpapers
                         success = true;
                         Log.Debug("Downloaded XML fiesize: " + f.Length.ToString());
                         Log.Info("Downloaded XML-file");
+                        return true;
                     }
                     else
                     {
@@ -249,6 +293,7 @@ namespace DesktopWallpapers
                 }
                 attempt = attempt + 1;                
             }
+            return false;
         }
 
 /// <summary>
@@ -259,17 +304,7 @@ namespace DesktopWallpapers
         public static void DownloadImage(string url)
         {
             string LocalImage = settings.LocalImageFilename;
-            string newLocalImage = settings.LocalImageFilename + ".png";
-
-            if (File.Exists(LocalImage))
-            {
-                DateTime fileModifiedDate = File.GetLastWriteTime(LocalImage);
-                if (fileModifiedDate.AddMinutes(CacheTime) > DateTime.Now)
-                {
-                    Log.Debug("Using cached Bing image file: "+LocalImage);
-                    return;
-                }
-            }
+            string newLocalImage = settings.LocalImageFilename + ".png";            
 
             WebClient client = new WebClient();
             Log.Info("Save image from "+url+" to " + LocalImage);
@@ -294,6 +329,27 @@ namespace DesktopWallpapers
             img.Save(newLocalImage, ImageFormat.Png);
         }
 
+        public static void refreshBing(bool force)
+        {
+            //First check if we need to refresh the Bing XML-file
+            LoadXML();
+
+            if (force || BingXMLUpdate)
+            {
+                DownloadBingXML();
+                LoadXML();
+                DesktopWallpapers.Program.settings.Save(DesktopWallpapers.Program.SettingsFile);
+
+                foreach (DesktopWallpapers.Program.BingImage BI in DesktopWallpapers.Program.BingImages)
+                {
+                    if (BI.url != null)
+                    {
+                        DownloadImage("http://www.bing.com" + BI.url);
+                    }
+                }
+            }
+        }
+
         public static string getLocalImageDate()
         {
             if (File.Exists(settings.LocalImageFilename))
@@ -313,15 +369,17 @@ namespace DesktopWallpapers
         }
 
         public static void SaveMPFiles()
-        {
-            Log.Info("Save MPFiles!");
-            Image img = FromFile(DesktopWallpapers.Program.settings.LocalImageFilename);              
-            foreach (string fileName in settings.MPFiles)
+        {            
+            if (File.Exists(DesktopWallpapers.Program.settings.LocalImageFilename))
             {
-                if (File.Exists(fileName))
-                    File.Delete(fileName);
-                img.Save(fileName, ImageFormat.Png);
-                Log.Info("Save MPFile: " + fileName);
+                Image img = FromFile(DesktopWallpapers.Program.settings.LocalImageFilename);
+                foreach (string fileName in settings.MPFiles)
+                {
+                    if (File.Exists(fileName))
+                        File.Delete(fileName);
+                    img.Save(fileName, ImageFormat.Png);
+                    Log.Info("Save MPFile: " + fileName);
+                }
             }
         }
 
@@ -329,38 +387,10 @@ namespace DesktopWallpapers
 /// Set the currently downloaded Image as Wallpaper
 /// </summary>
         public static void SetCurrentImageAsWallpaper()
-        {
-            string url = "";
-            string msg = "";
-
+        {            
             Log.Debug("Setting wallpaper!");
-            DownloadBingXML();            
-
-            foreach (DesktopWallpapers.Program.BingImage BI in DesktopWallpapers.Program.BingImages)
-            {
-                if (BI.url == null)
-                {
-                    msg = "No URL found!";
-                }
-                else
-                {
-                    msg = BI.url;
-                    url = BI.url;
-                }
-
-                if (BI.copyright == null)
-                {
-                    msg = "No copyright found!";
-                }
-                else
-                {
-                    msg = BI.copyright;
-                }
-            }
-            Log.Debug("Msg: "+msg);
-            DownloadImage("http://www.bing.com" + url);
-
-            SetWallpaper(settings.LocalImageFilename + ".png");
+            if (File.Exists(settings.LocalImageFilename + ".png"))
+                SetWallpaper(settings.LocalImageFilename + ".png");                      
         }
 
 ///<summary>
@@ -416,8 +446,7 @@ namespace DesktopWallpapers
             0,
             "",
             SPIF_UPDATEINIFILE | SPIF_SENDWININICHANGE);
-        }
-
+        }        
 
 #region BingImage
         public class BingImage
@@ -426,7 +455,7 @@ namespace DesktopWallpapers
             public string copyright;
             public string startdate;
             public string fullstartdate;
-            public string enddate;
+            public string enddate;            
         }
 #endregion
 
@@ -435,7 +464,10 @@ namespace DesktopWallpapers
         {
             public static string PathToImages = AppDir;
             public string LocalXmlFilename = string.Format(@"{0}{1}", PathToImages, "BingXML.xml");
-            public string LocalImageFilename = string.Format(@"{0}{1}", PathToImages, "backgroundImage");            
+            public string LocalImageFilename = string.Format(@"{0}{1}", PathToImages, "backgroundImage");
+            public DateTime BingFullstarttime;
+            public DateTime BingEnddate;
+            public string BingURL = "";
             public List<string> MPFiles = new List<string>(); 
         }
 

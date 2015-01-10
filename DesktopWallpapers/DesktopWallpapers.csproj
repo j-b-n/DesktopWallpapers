@@ -66,6 +66,9 @@
   <PropertyGroup>
     <StartupObject>DesktopWallpapers.Program</StartupObject>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Globe.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="CommandLine">
       <HintPath>..\packages\CommandLineParser.1.9.71\lib\net45\CommandLine.dll</HintPath>
@@ -117,6 +120,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="DesktopWallpapers_TemporaryKey.pfx" />
     <None Include="packages.config" />
@@ -149,6 +153,21 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\action_create_16xLG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh_16xLG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gear_16xLG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\action_Cancel_16xMD.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Globe.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

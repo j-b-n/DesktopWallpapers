@@ -28,30 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.setToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setMPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.forceUpdateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(17, 49);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1148, 562);
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
             // 
             // menuStrip1
             // 
@@ -74,43 +67,6 @@
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(55, 29);
             this.fileToolStripMenuItem.Text = "FILE";
-            // 
-            // setToolStripMenuItem
-            // 
-            this.setToolStripMenuItem.Name = "setToolStripMenuItem";
-            this.setToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.setToolStripMenuItem.Size = new System.Drawing.Size(251, 30);
-            this.setToolStripMenuItem.Text = "Set wallpaper";
-            this.setToolStripMenuItem.Click += new System.EventHandler(this.setToolStripMenuItem_Click);
-            // 
-            // setMPToolStripMenuItem
-            // 
-            this.setMPToolStripMenuItem.Name = "setMPToolStripMenuItem";
-            this.setMPToolStripMenuItem.Size = new System.Drawing.Size(251, 30);
-            this.setMPToolStripMenuItem.Text = "Set+MP";
-            this.setMPToolStripMenuItem.Click += new System.EventHandler(this.setMPToolStripMenuItem_Click);
-            // 
-            // forceUpdateToolStripMenuItem
-            // 
-            this.forceUpdateToolStripMenuItem.Name = "forceUpdateToolStripMenuItem";
-            this.forceUpdateToolStripMenuItem.Size = new System.Drawing.Size(251, 30);
-            this.forceUpdateToolStripMenuItem.Text = "Force update";
-            this.forceUpdateToolStripMenuItem.Click += new System.EventHandler(this.forceUpdateToolStripMenuItem_Click);
-            // 
-            // optionsToolStripMenuItem
-            // 
-            this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(251, 30);
-            this.optionsToolStripMenuItem.Text = "Options";
-            this.optionsToolStripMenuItem.Click += new System.EventHandler(this.optionsToolStripMenuItem_Click);
-            // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(251, 30);
-            this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 
@@ -147,6 +103,56 @@
             this.toolStripStatusLabel3.Text = "Last update:";
             this.toolStripStatusLabel3.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(17, 49);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(1148, 562);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
+            // setToolStripMenuItem
+            // 
+            this.setToolStripMenuItem.Image = global::DesktopWallpapers.Properties.Resources.action_create_16xLG;
+            this.setToolStripMenuItem.Name = "setToolStripMenuItem";
+            this.setToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.setToolStripMenuItem.Size = new System.Drawing.Size(251, 30);
+            this.setToolStripMenuItem.Text = "Set wallpaper";
+            this.setToolStripMenuItem.Click += new System.EventHandler(this.setToolStripMenuItem_Click);
+            // 
+            // setMPToolStripMenuItem
+            // 
+            this.setMPToolStripMenuItem.Image = global::DesktopWallpapers.Properties.Resources.action_create_16xLG;
+            this.setMPToolStripMenuItem.Name = "setMPToolStripMenuItem";
+            this.setMPToolStripMenuItem.Size = new System.Drawing.Size(251, 30);
+            this.setMPToolStripMenuItem.Text = "Set+MP";
+            this.setMPToolStripMenuItem.Click += new System.EventHandler(this.setMPToolStripMenuItem_Click);
+            // 
+            // forceUpdateToolStripMenuItem
+            // 
+            this.forceUpdateToolStripMenuItem.Image = global::DesktopWallpapers.Properties.Resources.refresh_16xLG;
+            this.forceUpdateToolStripMenuItem.Name = "forceUpdateToolStripMenuItem";
+            this.forceUpdateToolStripMenuItem.Size = new System.Drawing.Size(251, 30);
+            this.forceUpdateToolStripMenuItem.Text = "Force update";
+            this.forceUpdateToolStripMenuItem.Click += new System.EventHandler(this.forceUpdateToolStripMenuItem_Click);
+            // 
+            // optionsToolStripMenuItem
+            // 
+            this.optionsToolStripMenuItem.Image = global::DesktopWallpapers.Properties.Resources.gear_16xLG;
+            this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(251, 30);
+            this.optionsToolStripMenuItem.Text = "Options";
+            this.optionsToolStripMenuItem.Click += new System.EventHandler(this.optionsToolStripMenuItem_Click);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Image = global::DesktopWallpapers.Properties.Resources.action_Cancel_16xMD;
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(251, 30);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -155,14 +161,15 @@
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Desktop Wallpapers";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

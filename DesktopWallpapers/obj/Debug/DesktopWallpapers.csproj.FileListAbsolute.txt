@@ -18,5 +18,6 @@ C:\Users\joabj85\Source\Repos\DesktopWallpapers\DesktopWallpapers\bin\Debug\Desk
 C:\Users\joabj85\Source\Repos\DesktopWallpapers\DesktopWallpapers\bin\Debug\DesktopWallpapers.application
 C:\Users\joabj85\Source\Repos\DesktopWallpapers\DesktopWallpapers\obj\Debug\DesktopWallpapers.exe.manifest
 C:\Users\joabj85\Source\Repos\DesktopWallpapers\DesktopWallpapers\obj\Debug\DesktopWallpapers.application
+C:\Users\joabj85\Source\Repos\DesktopWallpapers\DesktopWallpapers\obj\Debug\DesktopWallpapers.csprojAssemblyReference.cache
 C:\Users\joabj85\Source\Repos\DesktopWallpapers\DesktopWallpapers\obj\Debug\DesktopWallpapers.csproj.CoreCompileInputs.cache
 C:\Users\joabj85\Source\Repos\DesktopWallpapers\DesktopWallpapers\obj\Debug\DesktopWallpapers.csproj.CopyComplete

@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesktopWallpapers", "DesktopWallpapers\DesktopWallpapers.csproj", "{85E6E315-0734-49DC-AC5E-85A5640C8530}"
-EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{ABF894CA-4636-42B2-834A-83D7747397D3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,14 +25,11 @@ Global
 		{85E6E315-0734-49DC-AC5E-85A5640C8530}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{85E6E315-0734-49DC-AC5E-85A5640C8530}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{85E6E315-0734-49DC-AC5E-85A5640C8530}.Release|x86.ActiveCfg = Release|Any CPU
-		{ABF894CA-4636-42B2-834A-83D7747397D3}.Debug|Any CPU.ActiveCfg = Debug
-		{ABF894CA-4636-42B2-834A-83D7747397D3}.Debug|Mixed Platforms.ActiveCfg = Debug
-		{ABF894CA-4636-42B2-834A-83D7747397D3}.Debug|x86.ActiveCfg = Debug
-		{ABF894CA-4636-42B2-834A-83D7747397D3}.Release|Any CPU.ActiveCfg = Release
-		{ABF894CA-4636-42B2-834A-83D7747397D3}.Release|Mixed Platforms.ActiveCfg = Release
-		{ABF894CA-4636-42B2-834A-83D7747397D3}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A00359D2-6E1E-430A-8A74-65C40A6AE743}
 	EndGlobalSection
 EndGlobal

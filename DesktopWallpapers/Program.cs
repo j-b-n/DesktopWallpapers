@@ -29,9 +29,7 @@ namespace DesktopWallpapers
         //Const ints that are commands to the above functions
         private static readonly int SPI_SETDESKWALLPAPER = 0x14;
         private static readonly int SPIF_UPDATEINIFILE = 0x01;
-        private static readonly int SPIF_SENDWININICHANGE = 0x02;
-
-        private static readonly int CacheTime = 360;
+        private static readonly int SPIF_SENDWININICHANGE = 0x02;        
 
         public static readonly ILog Log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);        
 

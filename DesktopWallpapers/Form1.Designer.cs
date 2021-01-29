@@ -59,6 +59,7 @@
             // 
             // fileToolStripMenuItem
             // 
+            this.fileToolStripMenuItem.BackColor = System.Drawing.SystemColors.MenuBar;
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.setToolStripMenuItem,
             this.setMPToolStripMenuItem,
@@ -135,7 +136,7 @@
             // 
             this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
             this.toolStripStatusLabel3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.toolStripStatusLabel3.Size = new System.Drawing.Size(714, 25);
+            this.toolStripStatusLabel3.Size = new System.Drawing.Size(760, 25);
             this.toolStripStatusLabel3.Spring = true;
             this.toolStripStatusLabel3.Text = "Last update:";
             this.toolStripStatusLabel3.TextAlign = System.Drawing.ContentAlignment.TopRight;

@@ -29,14 +29,14 @@ namespace DesktopWallpapers
         //Const ints that are commands to the above functions
         private static readonly int SPI_SETDESKWALLPAPER = 0x14;
         private static readonly int SPIF_UPDATEINIFILE = 0x01;
-        private static readonly int SPIF_SENDWININICHANGE = 0x02;        
+        private static readonly int SPIF_SENDWININICHANGE = 0x02;
 
-        public static readonly ILog Log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);        
+        public static readonly ILog Log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
-       
+
         public static List<BingImage> BingImages = new List<BingImage>();
 
-        public static string AppDir = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+"\\j-b-n\\DesktopWallpaper\\";
+        public static string AppDir = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\j-b-n\\DesktopWallpaper\\";
         public static string SettingsFile = AppDir + "settings.jsn";
 
         public static MySettings settings = MySettings.Load(SettingsFile);
@@ -45,33 +45,26 @@ namespace DesktopWallpapers
 
 
         ///CommandLine stuff
-        [DllImport( "kernel32.dll" )]
+        [DllImport("kernel32.dll")]
         static extern bool AttachConsole(int dwProcessId);
         private const int ATTACH_PARENT_PROCESS = -1;
 
-#region CommandLineParams
+        #region CommandLineParams
         class Options
         {
-            [Option('s', "setwallpaper", DefaultValue = false, HelpText = "Set wallpaper!")]
+            [Option('s', "setwallpaper", Default = false, HelpText = "Set wallpaper!")]
             public bool SetWallpaper { get; set; }
 
-            [Option('m', "mediaportal", DefaultValue = false, HelpText = "Set wallpaper in MediaPortal!")]
+            [Option('m', "mediaportal", Default = false, HelpText = "Set wallpaper in MediaPortal!")]
             public bool SetMediaportal { get; set; }
 
-            [Option('f', "force", DefaultValue = false, HelpText = "Force!")]
+            [Option('f', "force", Default = false, HelpText = "Force!")]
             public bool Force { get; set; }
 
-            [Option('v', "verbose", DefaultValue = false, HelpText = "Prints all messages to standard output.")]
+            [Option('v', "verbose", Default = false, HelpText = "Prints all messages to standard output.")]
             public bool Verbose { get; set; }
-
-            [HelpOption]
-            public string GetUsage()
-            {
-                return HelpText.AutoBuild(this,
-                  (HelpText current) => HelpText.DefaultParsingErrorsHandler(this, current));
-            }
-        }      
-#endregion
+        }
+        #endregion
 
 
         /// <summary>
@@ -87,7 +80,7 @@ namespace DesktopWallpapers
                              .GetAppenders()
                              .OfType<FileAppender>()
                              .FirstOrDefault(fa => fa.Name == "RollingFileAppender");
-            
+
             if (fileAppender != null)
             {
                 fileAppender.File = Path.Combine(AppDir, "DesktopWallpapers.log");
@@ -96,13 +89,13 @@ namespace DesktopWallpapers
 
             Log.Debug("Application Starting");
             Log.Debug("Appdir:" + AppDir);
-                                                   
+
             if (args == null || args.Length == 0)
             {
                 Log.Debug("Windows Form mode");
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new Form1());                        
+                Application.Run(new Form1());
             }
             else
             {
@@ -110,42 +103,43 @@ namespace DesktopWallpapers
                 // redirect console output to parent process;
                 // must be before any calls to Console.WriteLine()
                 AttachConsole(ATTACH_PARENT_PROCESS);
-
-                Options options = new Options();
                 
-                if (CommandLine.Parser.Default.ParseArguments(args, options))
-                {
-                    // consume values here
-                    if (options.Verbose) Log.Debug("Verbose operations!");
+                var result = CommandLine.Parser.Default.ParseArguments<Options>(args)
+                     .WithParsed(options => RunCLI(options));
 
-                    if (options.Force)
-                    {
-                        refreshBing(true);
-                    } else
-                    {
-                        refreshBing(false);
-                    }
 
-                    //if (options.Verbose) Console.WriteLine("Verbose!");
-                    if (options.SetWallpaper)
-                    {                        
-                        if (options.Verbose) Log.Debug("Setting wallpaper!");
-                        SetCurrentImageAsWallpaper();
-                    }
-
-                    if (options.SetMediaportal)
-                    {
-                        if (options.Verbose) Log.Debug("Use wallpaper in Mediaportal!");
-                        SaveMPFiles();
-                    }
-                } else
-                {
-                    Console.WriteLine();
-                //     Console.WriteLine(options.GetUsage());
-                    Log.Debug("Failed to parse command line parameters!");
-                }
             }
             Log.Debug("Application closing");
+        }
+
+        static int RunCLI(Options options)
+        {
+            // consume values here
+            if (options.Verbose) Log.Debug("Verbose operations!");
+
+            if (options.Force)
+            {
+                refreshBing(true);
+            }
+            else
+            {
+                refreshBing(false);
+            }
+
+            //if (options.Verbose) Console.WriteLine("Verbose!");
+            if (options.SetWallpaper)
+            {
+                if (options.Verbose) Log.Debug("Setting wallpaper!");
+                SetCurrentImageAsWallpaper();
+            }
+
+            if (options.SetMediaportal)
+            {
+                if (options.Verbose) Log.Debug("Use wallpaper in Mediaportal!");
+                SaveMPFiles();
+            }
+
+            return 1;
         }
 
         public static void LoadXML()

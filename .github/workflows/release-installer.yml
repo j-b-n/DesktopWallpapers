@@ -1,0 +1,50 @@
+name: Build & Attach Installer on Release
+
+on:
+  release:
+    types: [published] # Triggas när en ny release publiceras på GitHub
+
+jobs:
+  build-and-release:
+    runs-on: windows-latest
+    permissions:
+      contents: write # Krävs för att kunna ladda upp filer till Releasen
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      # Hämta versionsnumret från release-taggen (t.ex. v1.0.2 -> 1.0.2)
+      - name: Extract Tag Version
+        id: get_version
+        shell: pwsh
+        run: |
+          $tag = "${{ github.event.release.tag_name }}"
+          $version = $tag -replace '^v', ''
+          echo "VERSION=$version" >> $env:GITHUB_OUTPUT
+
+      # Publicera .NET-projektet
+      - name: Publish .NET App
+        shell: pwsh
+        run: |
+          dotnet publish DesktopWallpapers/DesktopWallpapers.csproj -c Release -r win-x64 --self-contained false
+
+      # Kompilera .exe-installatoren och skicka in versionsnumret till Inno Setup
+      - name: Compile Inno Setup
+        uses: Minionguyjpro/Inno-Setup-Action@v1.2.2
+        with:
+          path: setup.iss
+          options: /DAppVersion=${{ steps.get_version.outputs.VERSION }}
+
+      # Ladda upp den fardiga .exe-filen direkt till GitHub-releasen
+      - name: Upload Installer to Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: installer_output/DesktopWallpapers_Setup.exe
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

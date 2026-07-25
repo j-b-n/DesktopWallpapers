@@ -1,21 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Threading.Tasks;
+using System.Net.Http;
 using System.Windows.Forms;
-using log4net;
-using System.Xml;
 using System.IO;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
-using CommandLine;
-using CommandLine.Text;
-using Newtonsoft.Json;
-using log4net.Appender;
-
-[assembly: log4net.Config.XmlConfigurator(Watch = true)]
+using System.Text.Json;
+using Microsoft.Extensions.Logging;
 
 namespace DesktopWallpapers
 {
@@ -31,7 +24,23 @@ namespace DesktopWallpapers
         private static readonly int SPIF_UPDATEINIFILE = 0x01;
         private static readonly int SPIF_SENDWININICHANGE = 0x02;
 
-        public static readonly ILog Log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+        private static readonly ILoggerFactory LoggerFactory = Microsoft.Extensions.Logging.LoggerFactory.Create(builder =>
+        {
+            builder.SetMinimumLevel(LogLevel.Debug);
+            builder.AddSimpleConsole(options =>
+            {
+                options.SingleLine = true;
+                options.TimestampFormat = "yyyy-MM-dd HH:mm:ss.fff ";
+            });
+        });
+        public static readonly AppLogger Log = new AppLogger(LoggerFactory.CreateLogger("DesktopWallpapers.Program"));
+        private static readonly HttpClient HttpClient = CreateHttpClient();
+        private static readonly JsonSerializerOptions JsonOptions = new JsonSerializerOptions
+        {
+            IncludeFields = true
+        };
+        private const string BingBaseUrl = "https://www.bing.com";
+        private const string BingMetadataUrl = "https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=sv-SE";
 
 
         public static List<BingImage> BingImages = new List<BingImage>();
@@ -41,7 +50,67 @@ namespace DesktopWallpapers
 
         public static MySettings settings = MySettings.Load(SettingsFile);
 
-        public static bool BingXMLUpdate = false;
+        public static bool BingMetadataUpdate = false;
+
+        private static HttpClient CreateHttpClient()
+        {
+            var client = new HttpClient();
+            client.DefaultRequestHeaders.UserAgent.ParseAdd(
+                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) " +
+                "AppleWebKit/537.36 (KHTML, like Gecko) " +
+                "Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0");
+            return client;
+        }
+
+        private static bool DownloadFileToPath(string url, string destination)
+        {
+            try
+            {
+                var data = HttpClient.GetByteArrayAsync(url).GetAwaiter().GetResult();
+                File.WriteAllBytes(destination, data);
+                return true;
+            }
+            catch (Exception e)
+            {
+                Log.Error("Failed to download file: " + e.Message);
+                return false;
+            }
+        }
+
+        private static bool TryDeleteFileWithRetry(string filePath, int maxAttempts, int delayMilliseconds)
+        {
+            if (!File.Exists(filePath))
+            {
+                return true;
+            }
+
+            for (int attempt = 1; attempt <= maxAttempts; attempt++)
+            {
+                try
+                {
+                    File.Delete(filePath);
+                    return true;
+                }
+                catch (IOException)
+                {
+                    if (attempt == maxAttempts)
+                    {
+                        return false;
+                    }
+                }
+                catch (UnauthorizedAccessException)
+                {
+                    if (attempt == maxAttempts)
+                    {
+                        return false;
+                    }
+                }
+
+                System.Threading.Thread.Sleep(delayMilliseconds);
+            }
+
+            return false;
+        }
 
 
         ///CommandLine stuff
@@ -52,16 +121,12 @@ namespace DesktopWallpapers
         #region CommandLineParams
         class Options
         {
-            [Option('s', "setwallpaper", Default = false, HelpText = "Set wallpaper!")]
             public bool SetWallpaper { get; set; }
 
-            [Option('m', "mediaportal", Default = false, HelpText = "Set wallpaper in MediaPortal!")]
             public bool SetMediaportal { get; set; }
 
-            [Option('f', "force", Default = false, HelpText = "Force!")]
             public bool Force { get; set; }
 
-            [Option('v', "verbose", Default = false, HelpText = "Prints all messages to standard output.")]
             public bool Verbose { get; set; }
         }
         #endregion
@@ -73,19 +138,7 @@ namespace DesktopWallpapers
         [STAThread]
         static void Main(string[] args)
         {
-            //Configure log4net!
-            log4net.Config.XmlConfigurator.Configure();
-
-            var fileAppender = LogManager.GetRepository()
-                             .GetAppenders()
-                             .OfType<FileAppender>()
-                             .FirstOrDefault(fa => fa.Name == "RollingFileAppender");
-
-            if (fileAppender != null)
-            {
-                fileAppender.File = Path.Combine(AppDir, "DesktopWallpapers.log");
-                fileAppender.ActivateOptions();
-            }
+            Log.SetLogFilePath(Path.Combine(AppDir, "DesktopWallpapers.log"));
 
             Log.Debug("Application Starting");
             Log.Debug("Appdir:" + AppDir);
@@ -103,13 +156,63 @@ namespace DesktopWallpapers
                 // redirect console output to parent process;
                 // must be before any calls to Console.WriteLine()
                 AttachConsole(ATTACH_PARENT_PROCESS);
-                
-                var result = CommandLine.Parser.Default.ParseArguments<Options>(args)
-                     .WithParsed(options => RunCLI(options));
 
+                if (TryParseOptions(args, out Options options))
+                {
+                    RunCLI(options);
+                }
+                else
+                {
+                    PrintUsage();
+                }
 
             }
             Log.Debug("Application closing");
+        }
+
+        private static bool TryParseOptions(string[] args, out Options options)
+        {
+            options = new Options();
+            foreach (string arg in args)
+            {
+                switch (arg)
+                {
+                    case "-s":
+                    case "--setwallpaper":
+                        options.SetWallpaper = true;
+                        break;
+                    case "-m":
+                    case "--mediaportal":
+                        options.SetMediaportal = true;
+                        break;
+                    case "-f":
+                    case "--force":
+                        options.Force = true;
+                        break;
+                    case "-v":
+                    case "--verbose":
+                        options.Verbose = true;
+                        break;
+                    case "-h":
+                    case "--help":
+                        return false;
+                    default:
+                        Log.Error("Unknown argument: " + arg);
+                        return false;
+                }
+            }
+
+            return true;
+        }
+
+        private static void PrintUsage()
+        {
+            Console.WriteLine("DesktopWallpapers CLI usage:");
+            Console.WriteLine("  -s, --setwallpaper   Set current image as wallpaper");
+            Console.WriteLine("  -m, --mediaportal    Save image for MediaPortal files");
+            Console.WriteLine("  -f, --force          Force metadata/image refresh");
+            Console.WriteLine("  -v, --verbose        Enable verbose logging");
+            Console.WriteLine("  -h, --help           Show this help");
         }
 
         static int RunCLI(Options options)
@@ -142,27 +245,40 @@ namespace DesktopWallpapers
             return 1;
         }
 
-        public static void LoadXML()
+        public static void LoadBingMetadata()
         {
-            BingXMLUpdate = false;
+            BingMetadataUpdate = false;
             BingImages.Clear();
 
-            if (File.Exists(settings.LocalXmlFilename))
+            if (File.Exists(settings.LocalMetadataFilename))
             {
-                string value = File.ReadAllText(settings.LocalXmlFilename);                
-                XmlDocument doc = new XmlDocument();
+                string value = File.ReadAllText(settings.LocalMetadataFilename);
                 try
-                {          
-                    doc.LoadXml(value);
-                    System.Xml.XmlNodeList NodeList = doc.GetElementsByTagName("image");                    
-                    foreach (XmlNode node in NodeList)
+                {
+                    value = value.TrimStart('\uFEFF', ' ', '\t', '\r', '\n');
+                    if (!value.StartsWith("{", StringComparison.Ordinal))
+                    {
+                        Log.Error("Bing metadata är inte JSON. Ignorerar svaret.");
+                        BingMetadataUpdate = true;
+                        return;
+                    }
+
+                    var root = JsonSerializer.Deserialize<BingApiResponse>(value, JsonOptions);
+                    if (root == null || root.images == null || root.images.Count == 0)
+                    {
+                        Log.Error("Bing JSON saknar bilddata.");
+                        BingMetadataUpdate = true;
+                        return;
+                    }
+
+                    foreach (BingApiImage node in root.images)
                     {
                         BingImage BI = new BingImage();
-                        BI.url = node["url"].InnerText;
-                        BI.copyright = System.Text.RegularExpressions.Regex.Unescape(node["copyright"].InnerText);
-                        BI.startdate = node["startdate"].InnerText;
-                        BI.fullstartdate = node["fullstartdate"].InnerText;
-                        BI.enddate = node["enddate"].InnerText;
+                        BI.url = node.url;
+                        BI.copyright = node.copyright;
+                        BI.startdate = node.startdate;
+                        BI.fullstartdate = node.fullstartdate;
+                        BI.enddate = node.enddate;
                         BingImages.Add(BI);
 
                         DateTime dt = DateTime.Now;
@@ -179,7 +295,7 @@ namespace DesktopWallpapers
                         if (settings.BingFullstarttime != dt)
                         {
                             settings.BingFullstarttime = dt;                      
-                            BingXMLUpdate = true;
+                            BingMetadataUpdate = true;
                         }
 
                         dt = DateTime.Now;
@@ -196,85 +312,90 @@ namespace DesktopWallpapers
                         if (settings.BingEnddate != dt)
                         {
                             settings.BingEnddate = dt;
-                            BingXMLUpdate = true;
+                            BingMetadataUpdate = true;
                         }
 
                         if(dt < DateTime.Now)
                         {
-                            Log.Info("Reload XML-file due to passed enddate!");
-                            BingXMLUpdate = true;
+                            Log.Info("Reload metadata file due to passed enddate!");
+                            BingMetadataUpdate = true;
                         }
 
                         if (settings.BingURL != BI.url)
                         {
                             settings.BingURL = BI.url;                            
-                            BingXMLUpdate = true;
+                            BingMetadataUpdate = true;
                         }
                     }
                 }
-                catch (XmlException e)
+                catch (Exception e)
                 {
-                    Log.Error("Can't download or parse Bing XML-file: " + e.Message);
-                    BingXMLUpdate = true;
+                    Log.Error("Kan inte hämta eller tolka Bing JSON: " + e.Message);
+                    BingMetadataUpdate = true;
                     return;
                 }
             }
             else
             {
-                BingXMLUpdate = true;
+                BingMetadataUpdate = true;
             }
         }
 
         public static void ClearCache()
         {
-            BingXMLUpdate = true;
+            BingMetadataUpdate = true;
             string LocalImage = settings.LocalImageFilename;
             string newLocalImage = settings.LocalImageFilename + ".png";            
 
-            if (File.Exists(settings.LocalXmlFilename))
-                File.Delete(settings.LocalXmlFilename);
+            if (!TryDeleteFileWithRetry(settings.LocalMetadataFilename, 3, 100))
+            {
+                Log.Error("Can't delete metadata file (locked): " + settings.LocalMetadataFilename);
+            }
 
-            if (File.Exists(LocalImage))
-                File.Delete(LocalImage);
+            if (!TryDeleteFileWithRetry(LocalImage, 3, 100))
+            {
+                Log.Error("Can't delete image file (locked): " + LocalImage);
+            }
 
-            if (File.Exists(newLocalImage))
-                File.Delete(newLocalImage);
+            if (!TryDeleteFileWithRetry(newLocalImage, 3, 100))
+            {
+                Log.Error("Can't delete PNG image file (locked): " + newLocalImage);
+            }
         }
 
 
-        public static bool DownloadBingXML()
+        public static bool DownloadBingMetadata()
         {            
             int attempt = 1;
             bool success = false;
 
             while (!success && attempt<11)
             {
-                Log.Debug("Downloading new Bing XML - attempt: " + attempt);
-                WebClient client = new WebClient();
-                client.Headers["User-Agent"] =
-                        "Mozilla/4.0 (Compatible; Windows NT 5.1; MSIE 6.0) " +
-                        "(compatible; MSIE 6.0; Windows NT 5.1; " +
-                        ".NET CLR 1.1.4322; .NET CLR 2.0.50727)";
-
-                // Download XML from Bing.
-                try
+                Log.Debug("Downloading new Bing JSON - attempt: " + attempt);
+                if (!DownloadFileToPath(BingMetadataUrl, settings.LocalMetadataFilename))
                 {
-                    client.DownloadFile("http://www.bing.com/HPImageArchive.aspx?format=xml&idx=0&n=1&mkt=en-US", settings.LocalXmlFilename);
-                }
-                catch (WebException e)
-                {
-                    Log.Error("Failed to download Bing XML: " + e.Message);
+                    attempt = attempt + 1;
+                    continue;
                 }
 
-                if (File.Exists(settings.LocalXmlFilename))
+                if (File.Exists(settings.LocalMetadataFilename))
                 {
-                    FileInfo f = new FileInfo(settings.LocalXmlFilename);
+                    FileInfo f = new FileInfo(settings.LocalMetadataFilename);
 
                     if (f.Length > 1)
                     {
+                        string body = File.ReadAllText(settings.LocalMetadataFilename).TrimStart('\uFEFF', ' ', '\t', '\r', '\n');
+                        if (!body.StartsWith("{", StringComparison.Ordinal))
+                        {
+                            Log.Error("Bing returnerade inte JSON (möjligen HTML-felsida). Försöker igen.");
+                            success = false;
+                            attempt = attempt + 1;
+                            continue;
+                        }
+
                         success = true;
-                        Log.Debug("Downloaded XML fiesize: " + f.Length.ToString());
-                        Log.Info("Downloaded XML-file");
+                        Log.Debug("Downloaded JSON filesize: " + f.Length.ToString());
+                        Log.Info("Downloaded Bing JSON file");
                         return true;
                     }
                     else
@@ -296,47 +417,72 @@ namespace DesktopWallpapers
         public static void DownloadImage(string url)
         {
             string LocalImage = settings.LocalImageFilename;
-            string newLocalImage = settings.LocalImageFilename + ".png";            
+            string newLocalImage = settings.LocalImageFilename + ".png";
+            string tempLocalImage = settings.LocalImageFilename + ".tmp";
+            string downloadTarget = LocalImage;
 
-            WebClient client = new WebClient();
             Log.Info("Save image from "+url+" to " + LocalImage);
 
-            if (File.Exists(LocalImage))
-                File.Delete(LocalImage);
+            if (!TryDeleteFileWithRetry(LocalImage, 3, 100))
+            {
+                Log.Info("Local image file is locked, using temporary download target.");
+                downloadTarget = tempLocalImage;
+                if (!TryDeleteFileWithRetry(tempLocalImage, 3, 100))
+                {
+                    Log.Error("Can't prepare temporary file for download: " + tempLocalImage);
+                    return;
+                }
+            }
 
-            if (File.Exists(newLocalImage))
-                File.Delete(newLocalImage);
+            if (!TryDeleteFileWithRetry(newLocalImage, 3, 100))
+            {
+                Log.Error("Can't replace image file (locked): " + newLocalImage);
+                return;
+            }
+
+            if (!DownloadFileToPath(url, downloadTarget))
+            {
+                Log.Error("Can't download file \""+url+"\" or save it locally to \""+LocalImage+"\".");
+                return;
+            }
 
             try
             {
-                client.DownloadFile(url, LocalImage);
+                using (var img = Image.FromFile(downloadTarget))
+                {
+                    img.Save(newLocalImage, ImageFormat.Png);
+                }
             }
-            catch (WebException e)
+            catch (Exception e)
             {
-                Log.Error("Can't download file \""+url+"\" or save it locally to \""+LocalImage+
-                    "\": "+e.Message+"\n"+e.InnerException);                          
+                Log.Error("Can't convert downloaded image to PNG: " + e.Message);
+                return;
             }
-            
-            var img = Image.FromFile(LocalImage);
-            img.Save(newLocalImage, ImageFormat.Png);
+            finally
+            {
+                if (downloadTarget == tempLocalImage)
+                {
+                    TryDeleteFileWithRetry(tempLocalImage, 3, 100);
+                }
+            }
         }
 
         public static void refreshBing(bool force)
         {
-            //First check if we need to refresh the Bing XML-file
-            LoadXML();
+            // First check if we need to refresh Bing metadata.
+            LoadBingMetadata();
 
-            if (force || BingXMLUpdate)
+            if (force || BingMetadataUpdate)
             {
-                DownloadBingXML();
-                LoadXML();
+                DownloadBingMetadata();
+                LoadBingMetadata();
                 DesktopWallpapers.Program.settings.Save(DesktopWallpapers.Program.SettingsFile);
 
                 foreach (DesktopWallpapers.Program.BingImage BI in DesktopWallpapers.Program.BingImages)
                 {
                     if (BI.url != null)
                     {
-                        DownloadImage("http://www.bing.com" + BI.url);
+                        DownloadImage(BingBaseUrl + BI.url);
                     }
                 }
             }
@@ -449,13 +595,27 @@ namespace DesktopWallpapers
             public string fullstartdate;
             public string enddate;            
         }
+
+        public class BingApiResponse
+        {
+            public List<BingApiImage> images { get; set; }
+        }
+
+        public class BingApiImage
+        {
+            public string url { get; set; }
+            public string copyright { get; set; }
+            public string startdate { get; set; }
+            public string fullstartdate { get; set; }
+            public string enddate { get; set; }
+        }
 #endregion
 
 #region Settings
         public class MySettings : AppSettings<MySettings>
         {
             public static string PathToImages = AppDir;
-            public string LocalXmlFilename = string.Format(@"{0}{1}", PathToImages, "BingXML.xml");
+            public string LocalMetadataFilename = string.Format(@"{0}{1}", PathToImages, "BingMetadata.json");
             public string LocalImageFilename = string.Format(@"{0}{1}", PathToImages, "backgroundImage");
             public DateTime BingFullstarttime;
             public DateTime BingEnddate;
@@ -471,19 +631,19 @@ namespace DesktopWallpapers
             {
                 string path = Path.GetDirectoryName(fileName);
                 Directory.CreateDirectory(path);             
-                File.WriteAllText(fileName, JsonConvert.SerializeObject(this));
+                File.WriteAllText(fileName, JsonSerializer.Serialize(this, JsonOptions));
             }
 
             public static void Save(T pSettings, string fileName = DEFAULT_FILENAME)
             {
-                File.WriteAllText(fileName, JsonConvert.SerializeObject(pSettings));
+                File.WriteAllText(fileName, JsonSerializer.Serialize(pSettings, JsonOptions));
             }
 
             public static T Load(string fileName = DEFAULT_FILENAME)
             {                
                 T t = new T();
                 if (File.Exists(fileName))
-                    t = JsonConvert.DeserializeObject<T>(File.ReadAllText(fileName));                                
+                    t = JsonSerializer.Deserialize<T>(File.ReadAllText(fileName), JsonOptions) ?? new T();
                 return t;
             }
 
@@ -491,5 +651,108 @@ namespace DesktopWallpapers
 
 
 #endregion
+
+        public sealed class AppLogger
+        {
+            private readonly ILogger _logger;
+            private readonly object _fileLock = new object();
+            private string _logFilePath;
+            private const long MaxLogFileBytes = 1024 * 1024;
+            private const int MaxLogBackups = 5;
+
+            public AppLogger(ILogger logger)
+            {
+                _logger = logger;
+            }
+
+            public void SetLogFilePath(string path)
+            {
+                _logFilePath = path;
+                try
+                {
+                    var directory = Path.GetDirectoryName(path);
+                    if (!string.IsNullOrEmpty(directory))
+                    {
+                        Directory.CreateDirectory(directory);
+                    }
+                }
+                catch
+                {
+                    // Ignore file logging setup errors; console logging still works.
+                }
+            }
+
+            public void Debug(string message)
+            {
+                _logger.LogDebug(message);
+                WriteToFile("DEBUG", message);
+            }
+
+            public void Info(string message)
+            {
+                _logger.LogInformation(message);
+                WriteToFile("INFO", message);
+            }
+
+            public void Error(string message)
+            {
+                _logger.LogError(message);
+                WriteToFile("ERROR", message);
+            }
+
+            private void WriteToFile(string level, string message)
+            {
+                if (string.IsNullOrWhiteSpace(_logFilePath))
+                {
+                    return;
+                }
+
+                string line = string.Format("{0:yyyy-MM-dd HH:mm:ss,fff} [{1}] {2}\r\n", DateTime.Now, level, message);
+                try
+                {
+                    lock (_fileLock)
+                    {
+                        RotateIfNeeded();
+                        File.AppendAllText(_logFilePath, line);
+                    }
+                }
+                catch
+                {
+                    // Never throw from logging.
+                }
+            }
+
+            private void RotateIfNeeded()
+            {
+                if (!File.Exists(_logFilePath))
+                {
+                    return;
+                }
+
+                var info = new FileInfo(_logFilePath);
+                if (info.Length < MaxLogFileBytes)
+                {
+                    return;
+                }
+
+                string oldestBackup = _logFilePath + "." + MaxLogBackups;
+                if (File.Exists(oldestBackup))
+                {
+                    File.Delete(oldestBackup);
+                }
+
+                for (int i = MaxLogBackups - 1; i >= 1; i--)
+                {
+                    string source = _logFilePath + "." + i;
+                    string target = _logFilePath + "." + (i + 1);
+                    if (File.Exists(source))
+                    {
+                        File.Move(source, target);
+                    }
+                }
+
+                File.Move(_logFilePath, _logFilePath + ".1");
+            }
+        }
     }
 }
